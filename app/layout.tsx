@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistPixelGrid } from "geist/font/pixel";
 import { Metadata, Viewport } from "next";
-import { DM_Sans, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { DM_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -23,14 +23,6 @@ export const viewport: Viewport = {
 const DmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
   display: "swap",
 });
 
@@ -111,22 +103,24 @@ const jsonLd = {
       "@id": `${siteConfig.meta.url}/#person`,
       name: siteConfig.personal.fullName,
       url: siteConfig.meta.url,
-      jobTitle: "Product Engineer and SaaS Builder",
+      jobTitle: "Builder — CLI tools, GUI apps, cybersecurity, full-stack systems",
       description: siteConfig.meta.description,
       knowsAbout: [
-        "Next.js",
+        "C",
+        "C++",
+        "Python",
+        "Rust",
         "TypeScript",
         "React",
-        "Prisma",
-        "Tailwind CSS",
-        "Node.js",
-        "PostgreSQL",
-        "AWS",
+        "Next.js",
+        "Cybersecurity",
+        "CLI Tools",
+        "Arch Linux",
       ],
       sameAs: [
-        "https://github.com/AdityaKodez",
-        "https://x.com/AdiKodez",
-        "https://linkedin.com/in/adityakodez",
+        "https://github.com/goldstac",
+        "https://x.com/LiProductions_",
+        "https://instagram.com/liproductions.dev",
       ],
       image: `${siteConfig.meta.url}/profile.avif`,
     },
@@ -145,7 +139,6 @@ export default function RootLayout({
         GeistPixelGrid.variable,
         "bg-background font-sans",
         DmSans.variable,
-        instrumentSerif.variable,
       )}
       suppressHydrationWarning
     >

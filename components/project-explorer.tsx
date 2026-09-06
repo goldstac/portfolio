@@ -36,42 +36,7 @@ export interface ProjectExplorerItem {
   order?: number;
 }
 
-const defaultSampleProjects: ProjectExplorerItem[] = [
-  {
-    id: "zeno",
-    title: "Zeno — AI Assistant for PostgreSQL",
-    year: 2025,
-    status: "building",
-    category: "ai-tool",
-    href: "https://zeno.example.com",
-    image: "/zeno.png",
-  },
-  {
-    id: "gridly",
-    title: "Gridly — Modern UI Component Library",
-    year: 2025,
-    status: "new",
-    category: "design-system",
-    href: "https://gridly.example.com",
-  },
-  {
-    id: "rixel",
-    title: "Rixel — High Performance Pixel Canvas",
-    year: 2024,
-    status: "shipped",
-    category: "webgl",
-    href: "https://rixel.example.com",
-    image: "/rixel.png",
-  },
-  {
-    id: "aura",
-    title: "Aura — Ambient Audio Workspace",
-    year: 2024,
-    status: "shipped",
-    category: "audio",
-    href: "https://aura.example.com",
-  },
-];
+const defaultSampleProjects: ProjectExplorerItem[] = [];
 
 const HOVER_QUERY = "(hover: hover) and (pointer: fine)";
 
@@ -86,20 +51,20 @@ const getServerSnapshot = () => false;
 
 const folderColors = [
   {
-    icon: "fill-blue-500/20 text-blue-600 dark:text-blue-400",
-    text: "text-blue-600 dark:text-blue-400",
+    icon: "fill-muted-foreground/20 text-foreground",
+    text: "text-foreground",
   },
   {
-    icon: "fill-amber-500/20 text-amber-600 dark:text-amber-400",
-    text: "text-amber-600 dark:text-amber-400",
+    icon: "fill-muted-foreground/20 text-muted-foreground",
+    text: "text-muted-foreground",
   },
   {
-    icon: "fill-emerald-500/20 text-emerald-600 dark:text-emerald-400",
-    text: "text-emerald-600 dark:text-emerald-400",
+    icon: "fill-muted-foreground/20 text-foreground",
+    text: "text-foreground",
   },
   {
-    icon: "fill-rose-500/20 text-rose-600 dark:text-rose-400",
-    text: "text-rose-600 dark:text-rose-400",
+    icon: "fill-muted-foreground/20 text-muted-foreground",
+    text: "text-muted-foreground",
   },
 ];
 
@@ -111,18 +76,18 @@ function StatusBadge({ status }: { status: ProjectStatus }) {
 
   if (status === "building") {
     return (
-      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-sm bg-blue-500/10 px-1.5 py-0.5 font-pixel text-[10px] leading-none text-blue-600 dark:text-blue-400">
+      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-sm px-1.5 py-0.5 font-mono text-[10px] leading-none text-muted-foreground">
         <span className="relative flex size-1.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-60 motion-reduce:animate-none" />
-          <span className="relative inline-flex size-1.5 rounded-full bg-blue-500" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-40 motion-reduce:animate-none" />
+          <span className="relative inline-flex size-1.5 rounded-full bg-foreground" />
         </span>
-        building&hellip;
+        building
       </span>
     );
   }
 
   return (
-    <span className="inline-flex shrink-0 items-center rounded-sm bg-amber-500/10 px-1.5 py-0.5 font-pixel text-[10px] leading-none text-amber-600 dark:text-amber-400">
+    <span className="inline-flex shrink-0 items-center rounded-sm px-1.5 py-0.5 font-mono text-[10px] leading-none text-muted-foreground">
       new
     </span>
   );
@@ -197,8 +162,7 @@ function WorkRow({
         {project.status ? <StatusBadge status={project.status} /> : null}
 
         {project.category ? (
-          <span className="ml-auto hidden shrink-0 font-mono text-xs text-muted-foreground/70 sm:block">
-            {"// "}
+          <span className="ml-auto hidden shrink-0 font-mono text-[11px] text-muted-foreground/50 sm:block">
             {project.category}
           </span>
         ) : null}
@@ -355,6 +319,11 @@ export function ProjectExplorer({
         onMouseMove={handleMouseMove}
         onMouseLeave={handlePreviewEnd}
       >
+        {projectsByYear.length === 0 && (
+          <p className="text-sm text-muted-foreground font-mono py-8">
+            No projects yet. Check back soon.
+          </p>
+        )}
         {projectsByYear.map((group, groupIndex) => {
           const isOpen = openYears[group.year] ?? true;
           const FolderIcon = isOpen ? FolderOpenIcon : FolderClosedIcon;

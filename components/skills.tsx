@@ -1,118 +1,108 @@
 "use client";
 
 import { skillsConfig, skillsSectionConfig } from "@/config/skills";
-import type { SkillIcon, SkillItem } from "@/config/types";
-import { cn } from "@/lib/utils";
-import AiSdk from "@/public/stacks/ai-sdk";
-import AuthIcon from "@/public/stacks/auth";
-import CursorIcon from "@/public/stacks/cursor";
+import type { SkillIcon } from "@/config/types";
 import NextjsIcon from "@/public/stacks/nextjs";
-import PrismaIcon from "@/public/stacks/prisma";
 import ReactIcon from "@/public/stacks/react";
 import ShadcnIcon from "@/public/stacks/shadcn";
 import TailwindIcon from "@/public/stacks/tailwind";
-import TrpcIcon from "@/public/stacks/trcp";
 import TSIcon from "@/public/stacks/ts";
 import JSIcon from "@/public/stacks/js";
+import OpenCodeIcon from "@/public/stacks/opencode";
 import { motion } from "motion/react";
 import type { ComponentType } from "react";
 import { BsClaude } from "react-icons/bs";
-import { SiReactquery } from "react-icons/si";
+import { SiGoogle, SiOpenai, SiSupabase, SiSqlite, SiPostgresql, SiRust, SiPython, SiSvelte, SiCplusplus, SiHtml5, SiCss, SiC, SiArchlinux, SiWeb3Dotjs } from "react-icons/si";
+import { FaWindows } from "react-icons/fa";
 
-const skillIconMap: Record<SkillIcon, ComponentType<{ size: string }>> = {
+function LetterIcon({ letter, className }: { letter: string; className?: string }) {
+  return (
+    <span className={`inline-flex items-center justify-center font-mono font-bold text-[10px] ${className ?? ""}`}>
+      {letter}
+    </span>
+  );
+}
+
+const skillIconMap: Record<SkillIcon, ComponentType<any>> = {
   nextjs: NextjsIcon,
   react: ReactIcon,
   typescript: TSIcon,
   javascript: JSIcon,
   tailwind: TailwindIcon,
   shadcn: ShadcnIcon,
-  "better-auth": AuthIcon,
-  "ai-sdk": AiSdk,
+  prisma: ({ size }) => <LetterIcon letter="P" />,
   claude: BsClaude,
-  tanstack: SiReactquery,
-  prisma: PrismaIcon,
-  trpc: TrpcIcon,
-  cursor: CursorIcon,
+  c: SiC,
+  cpp: SiCplusplus,
+  python: SiPython,
+  rust: SiRust,
+  html: SiHtml5,
+  css: SiCss,
+  svelte: SiSvelte,
+  supabase: SiSupabase,
+  postgresql: SiPostgresql,
+  sqlite: SiSqlite,
+  chatgpt: SiOpenai,
+  gemini: SiGoogle,
+  opencode: OpenCodeIcon,
+  archlinux: SiArchlinux,
+  windows: FaWindows,
+  web3: SiWeb3Dotjs,
+  everything: ({ size }: { size?: number }) => <LetterIcon letter="*" className={`w-[${size ?? 14}px] h-[${size ?? 14}px]`} />,
 };
 
 const enabledSkills = skillsConfig
   .filter((skill) => skill.enabled !== false)
   .sort((a, b) => a.order - b.order);
 
-function SkillChip({ skill, idx }: { skill: SkillItem; idx: number }) {
-  const Icon = skillIconMap[skill.icon];
-
-  const chipClasses = [
-    "no-js-visible inline-flex items-center gap-1.5 rounded-lg border border-dashed px-3 py-1 text-sm text-muted-foreground transition-colors",
-    "hover:text-foreground hover:border-primary/40",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20",
-  ].join(" ");
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2, delay: 0.05 + idx * 0.025 }}
-      className={chipClasses}
-      aria-label={skill.name}
-    >
-      <Icon size="18" />
-      <span className="font-medium">{skill.name}</span>
-    </motion.div>
-  );
-}
-
 export function Skills() {
-  const skills = enabledSkills;
   const categories = skillsSectionConfig.categories;
 
   return (
     <motion.section
       initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2, delay: 0.15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.2, delay: 0.1 }}
       className="border-t border-dashed pt-6"
     >
-      <motion.h2
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.2 }}
-        className="no-js-visible section-heading"
-      >
-        {skillsSectionConfig.title}
-      </motion.h2>
+      <h2 className="section-heading mb-3">{skillsSectionConfig.title}</h2>
 
-
-        {categories.map((category, groupIndex) => {
-          const categorySkills = skills.filter(
+      <div className="px-6 space-y-4">
+        {categories.map((category) => {
+          const categorySkills = enabledSkills.filter(
             (skill) => skill.category === category.id
           );
-
           if (categorySkills.length === 0) return null;
 
           return (
-            <motion.div
-              key={category.id}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.2, delay: groupIndex * 0.04 }}
-              className={cn("flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-6 px-6 py-3.5 border-b", groupIndex === 3 ? "border-none" : "")}
-            >
-              <span className="shrink-0 w-36 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                {`0${groupIndex + 1}`.padStart(2, "0") + " " + category.label}
+            <div key={category.id} className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <span className="shrink-0 w-28 font-mono text-[11px] text-muted-foreground">
+                {category.label}
               </span>
-
-              <div className="flex flex-wrap gap-2 flex-1">
-                {categorySkills.map((skill, idx) => (
-                  <SkillChip key={skill.id} skill={skill} idx={idx} />
-                ))}
+              <div className="flex flex-wrap gap-1.5">
+                {categorySkills.map((skill) => {
+                  const Icon = skillIconMap[skill.icon];
+                  return (
+                    <span
+                      key={skill.id}
+                      className={`inline-flex items-center gap-1 border px-2 py-0.5 text-xs text-muted-foreground ${
+                        skill.id === "everything"
+                          ? "border-solid border-foreground/30 bg-foreground/5 font-semibold tracking-wider text-foreground"
+                          : "border-dashed"
+                      }`}
+                      aria-label={skill.name}
+                    >
+                      {Icon && <Icon size={14} />}
+                      <span>{skill.name}</span>
+                    </span>
+                  );
+                })}
               </div>
-            </motion.div>
+            </div>
           );
         })}
-
+      </div>
     </motion.section>
   );
 }

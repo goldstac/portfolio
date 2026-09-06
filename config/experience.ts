@@ -14,7 +14,7 @@ export const experienceConfig: ExperienceItem[] = [
     summary:
       "Building and shipping products end-to-end with rapid iteration and strong product feedback loops.",
     highlights: [
-      "Designed auth and data architecture for multiple SaaS projects",
+      "Designed auth and data architecture for SaaS products, CLI tools, and full-stack systems",
       "Shipped MVPs in weeks with production deployments",
     ],
     order: 1,

@@ -200,7 +200,6 @@ export function SectionRail({
             <TooltipContent
               side="right"
               sideOffset={10}
-              hideArrow={Boolean(item.card)}
               className={cn(
                 item.card &&
                   "block w-60 rounded-xl bg-card p-3 text-card-foreground ring-1 ring-inset ring-foreground/10"

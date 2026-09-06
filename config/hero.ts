@@ -1,13 +1,12 @@
 import type { HeroConfig } from "@/config/types";
-import { MdWavingHand } from "react-icons/md";
 
 export const heroConfig: HeroConfig = {
-  greeting: "Hello, I'm Aditya Ojha",
-  waveEmoji: MdWavingHand,
-  headlineBefore: "I build",
-  highlightedPhrases: ["SaaS products", "public"],
-  headlineAfter: "and share what I learn.",
-  description:
-    "Building Gridly, Zeno, and Root end to end — sharing product decisions, technical tradeoffs, mistakes, and lessons along the way.",
-  descriptionHighlight: "sharing",
+  greeting: "Li Productions",
+  waveEmoji: "",
+  headlineBefore: "I code and build",
+  highlightedPhrases: ["tools, apps, and systems", ""],
+  headlineAfter: "",
+    description:
+      "I code in C, C++, and Python, build CLI tools, GUI apps, and full-stack systems. I also dabble in cybersecurity. Arch Linux user.",
+  descriptionHighlight: "what I learn",
 };

@@ -148,11 +148,13 @@ export function HeaderActions() {
         </Tooltip>
       </div>
 
-      <audio
-        ref={themeAudioRef}
-        src={siteConfig.banner.switchAudioSrc}
-        preload="none"
-      />
+      {siteConfig.banner.switchAudioSrc && (
+        <audio
+          ref={themeAudioRef}
+          src={siteConfig.banner.switchAudioSrc}
+          preload="none"
+        />
+      )}
     </>
   );
 }

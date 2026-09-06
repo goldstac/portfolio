@@ -1,14 +1,9 @@
 "use client";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { AskAI } from "@/components/ui/ask-ai";
 import { WritingUnderline } from "./writing-underline";
-import DiscordStatus from "./discord-status";
 import { heroConfig } from "@/config/hero";
-import { siteConfig } from "@/config/site";
-import { Globe2Icon } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useRef } from "react";
-import { useHaptic } from "react-haptic";
 
 const entryTransition = {
   duration: 0.24,
@@ -16,143 +11,80 @@ const entryTransition = {
 };
 
 export function Hero() {
-  const { vibrate } = useHaptic();
-  const vibrateAudio = useRef<HTMLAudioElement>(null);
-
-  const [beforeHighlight, afterHighlight] = heroConfig.description.split(
-    heroConfig.descriptionHighlight,
-  );
-
-  const handleWaveAudio = (play: boolean) => {
-    const audio = vibrateAudio.current;
-    if (!audio) {
-      return;
-    }
-
-    if (play) {
-      audio.currentTime = 0;
-      audio.playbackRate = 1;
-      audio.volume = 0.6;
-      audio.play().catch(() => {});
-      return;
-    }
-
-    audio.pause();
-    audio.currentTime = 0;
-  };
-
-  useEffect(() => {
-    const vibrate = vibrateAudio.current;
-
-    return () => {
-      vibrate?.pause();
-    };
-  }, []);
-
   return (
     <motion.section
-      className="no-js-visible relative z-20 space-y-4 px-6 pt-10"
+      className="no-js-visible relative z-20 px-6 pt-16 pb-4"
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={entryTransition}
     >
-      <div className="flex flex-col items-start gap-6">
-        <div className="space-y-2">
-          <motion.p
-            className="no-js-visible mb-4 flex items-center gap-2 text-lg font-mono font-semibold tracking-wide"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...entryTransition, delay: 0.1 }}
-          >
-            <span className="font-serif">{heroConfig.greeting}</span>
-            <span
-              className="inline-block text-2xl hover:animate-wave"
-              onMouseEnter={() => {
-                vibrate();
-                handleWaveAudio(true);
-              }}
-              onMouseLeave={() => handleWaveAudio(false)}
-              onFocus={() => handleWaveAudio(true)}
-              onBlur={() => handleWaveAudio(false)}
-              onTouchStart={() => handleWaveAudio(true)}
-              onTouchEnd={() => handleWaveAudio(false)}
-              style={{ transformOrigin: "70% 70%" }}
-            >
-              {typeof heroConfig.waveEmoji === "string" ? (
-                heroConfig.waveEmoji
-              ) : (
-                <heroConfig.waveEmoji className="dark:fill-orange-300 fill-orange-200" />
-              )}
-            </span>
-          </motion.p>
+      <div className="space-y-6">
+        <motion.h1
+          className="no-js-visible text-4xl sm:text-5xl font-bold tracking-tight"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entryTransition, delay: 0.1 }}
+        >
+          {heroConfig.greeting}
+        </motion.h1>
 
-          <motion.h1
-            className="no-js-visible text-xl font-bold leading-[1.05] tracking-tight text-balance max-sm:text-2xl"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...entryTransition, delay: 0.18 }}
-          >
-            <span className="block">{heroConfig.headlineBefore}</span>
-            <span className="underline decoration-border/50 underline-offset-4 sm:hidden">
+        <motion.p
+          className="no-js-visible text-xl sm:text-2xl font-medium text-muted-foreground leading-snug text-balance"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entryTransition, delay: 0.18 }}
+        >
+          I build{" "}
+          <span className="underline decoration-border/50 underline-offset-4">
+            <WritingUnderline delay={0.8}>
               {heroConfig.highlightedPhrases[0]}
-            </span>
-            <span className="hidden sm:inline">
-              <WritingUnderline delay={0.8}>
-                {heroConfig.highlightedPhrases[0]}
-              </WritingUnderline>
-            </span>{" "}
-            <span className="whitespace-nowrap">
-              in{" "}
+            </WritingUnderline>
+          </span>
+          {heroConfig.highlightedPhrases[1] && (
+            <>
+              {" "}
               <WritingUnderline delay={1.2}>
                 {heroConfig.highlightedPhrases[1]}
               </WritingUnderline>
-            </span>{" "}
-            {heroConfig.headlineAfter}
-          </motion.h1>
+            </>
+          )}
+        </motion.p>
 
-          <motion.p
-            className="no-js-visible mt-4 text-sm text-muted-foreground max-sm:text-sm"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...entryTransition, delay: 0.24 }}
-          >
-            {afterHighlight === undefined ? (
-              heroConfig.description
-            ) : (
-              <>
-                {beforeHighlight}
-                <span className="underline decoration-border/50 underline-offset-4">
-                  {heroConfig.descriptionHighlight}
-                </span>
-                {afterHighlight}
-              </>
-            )}
-          </motion.p>
+        <motion.p
+          className="no-js-visible text-sm text-muted-foreground leading-relaxed max-w-md"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entryTransition, delay: 0.24 }}
+        >
+          {heroConfig.description}
+        </motion.p>
 
-          <motion.div
-            className="no-js-visible mt-4 flex items-center gap-3 text-sm text-muted-foreground"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...entryTransition, delay: 0.32 }}
-          >
-            <Tooltip>
-              <TooltipTrigger className="micro-transition flex items-center gap-1.5 rounded-sm px-1 py-0.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20">
-                <Globe2Icon className="h-4 w-4" />
-                <span className="font-sans">
-                  {siteConfig.personal.location.label}
-                </span>
-              </TooltipTrigger>
-              <TooltipContent>
-                <span>{siteConfig.personal.location.timezone}</span>
-              </TooltipContent>
-            </Tooltip>
+        <motion.div
+          className="no-js-visible flex items-center gap-4 text-xs text-muted-foreground font-mono"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entryTransition, delay: 0.32 }}
+        >
+          <span>2024 — 2026</span>
+        </motion.div>
 
-            <DiscordStatus />
-          </motion.div>
-        </div>
+        <motion.div
+          className="no-js-visible"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entryTransition, delay: 0.4 }}
+        >
+          <AskAI
+            prompt="Hi! I'm on Li Productions' portfolio. Based on this page, introduce them: what they build, their stack, and what they're about."
+            title="Ask an AI about me"
+            description="A fresh perspective, from your favorite assistant."
+            label="Ask an AI"
+            blobOnly
+            size="default"
+            side="top"
+          />
+        </motion.div>
       </div>
-
-      <audio src="/vibration.mp3" ref={vibrateAudio} loop preload="none" />
     </motion.section>
   );
 }

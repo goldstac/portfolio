@@ -1,9 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Tooltip as TooltipPrimitive } from "radix-ui"
-
 import { cn } from "@/lib/utils"
+import { Tooltip as TooltipPrimitive } from "radix-ui"
 
 function TooltipProvider({
   delayDuration = 0,
@@ -33,12 +32,9 @@ function TooltipTrigger({
 function TooltipContent({
   className,
   sideOffset = 0,
-  hideArrow = false,
   children,
   ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Content> & {
-  hideArrow?: boolean
-}) {
+}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
@@ -51,9 +47,7 @@ function TooltipContent({
         {...props}
       >
         {children}
-        {!hideArrow && (
-          <TooltipPrimitive.Arrow className="z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px] bg-foreground fill-foreground" />
-        )}
+        <TooltipPrimitive.Arrow className="z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px] bg-foreground fill-foreground" />
       </TooltipPrimitive.Content>
     </TooltipPrimitive.Portal>
   )

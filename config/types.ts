@@ -90,10 +90,13 @@ export interface AboutConfig {
 }
 
 export type SkillCategory =
-  | "language"
-  | "frontend"
+  | "languages"
+  | "ai-stack"
+  | "frameworks"
   | "backend"
-  | "workflow-ai";
+  | "ai-tools"
+  | "os"
+  | "other";
 
 export interface SkillCategoryConfig {
   id: SkillCategory;
@@ -115,14 +118,26 @@ export type SkillIcon =
   | "typescript"
   | "javascript"
   | "tailwind"
-  | "ai-sdk"
   | "shadcn"
-  | "better-auth"
   | "prisma"
-  | "trpc"
-  | "tanstack"
   | "claude"
-  | "cursor";
+  | "c"
+  | "cpp"
+  | "python"
+  | "rust"
+  | "html"
+  | "css"
+  | "svelte"
+  | "supabase"
+  | "postgresql"
+  | "sqlite"
+  | "chatgpt"
+  | "gemini"
+  | "opencode"
+  | "archlinux"
+  | "windows"
+  | "web3"
+  | "everything";
 
 export interface SocialLink {
   id: string;
@@ -141,6 +156,7 @@ export interface SocialLink {
 export type SocialIcon =
   | "github"
   | "x"
+  | "instagram"
   | "peerlist"
   | "discord"
   | "gmail"
@@ -279,6 +295,14 @@ export interface ComponentDoc {
   enabled?: boolean;
 }
 
+export interface TimelineItem {
+  id: string;
+  date: string;
+  title: string;
+  description: string;
+  type: "milestone" | "learning" | "shipping";
+}
+
 export interface PortfolioConfig {
   meta: SiteMetaConfig;
   personal: PersonalInfo;
@@ -303,6 +327,10 @@ export interface PortfolioConfig {
     items: WorkflowItem[];
   };
   contact: ContactConfig;
+  timeline: {
+    title: string;
+    items: TimelineItem[];
+  };
 }
 
 

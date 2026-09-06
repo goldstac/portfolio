@@ -1,90 +1,64 @@
 import { About } from "@/components/about";
-import { Bookmarks } from "@/components/bookmarks";
-import { Certifications } from "@/components/certifications";
-import { ComponentHighlights } from "@/components/component-highlights";
-import { CTA } from "@/components/cta";
-import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
 import { GitHubSection } from "@/components/github-section";
 import { Hero } from "@/components/hero";
-import { HowIWork } from "@/components/how-i-work";
-import { ProjectExplorer } from "@/components/project-explorer";
 import { SectionRail } from "@/components/section-rail";
-import { Services } from "@/components/services";
 import { GitSkeleton } from "@/components/skeletons/github-skeleton";
 import { Skills } from "@/components/skills";
 import Social from "@/components/social";
-import { Testimonials } from "@/components/testimonials";
+import { Timeline } from "@/components/timeline";
+import { WantToTry } from "@/components/want-to-try";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
-import { projectsConfig, projectsSectionConfig } from "@/config/projects";
 import { siteConfig } from "@/config/site";
-import type { SectionId } from "@/config/types";
-import type { ReactElement } from "react";
 import { Suspense } from "react";
-
-const staticSections: Record<Exclude<SectionId, "github">, ReactElement> = {
-  socials: <Social />,
-  skills: <Skills />,
-  about: <About />,
-  testimonials: <Testimonials />,
-  projects: (
-    <ProjectExplorer
-      projects={projectsConfig}
-      title={projectsSectionConfig.title}
-    />
-  ),
-  components: <ComponentHighlights />,
-  bookmarks: <Bookmarks />,
-  certifications: <Certifications />,
-  experience: <Experience />,
-  services: <Services />,
-  workflow: <HowIWork />,
-  contact: <CTA />,
-};
 
 export default function Home() {
   const showGithub =
     siteConfig.sectionFlags.github && Boolean(process.env.GITHUB_TOKEN);
-  const visibleSections = siteConfig.sectionOrder.filter(
-    (id) => siteConfig.sectionFlags[id] && (id !== "github" || showGithub),
-  );
 
   return (
     <>
       <main
         id="main-content"
-        className="relative min-h-dvh gap-y-4 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip pt-8"
+        className="relative min-h-dvh gap-y-6 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
       >
         <div id="hero" className="bg-background scroll-mt-20">
           <Hero />
         </div>
-        {siteConfig.sectionOrder.map((sectionId) => {
-          if (
-            !siteConfig.sectionFlags[sectionId] ||
-            (sectionId === "github" && !showGithub)
-          ) {
-            return null;
-          }
 
-          const content =
-            sectionId === "github" ? (
-              <Suspense key="github" fallback={<GitSkeleton />}>
-                <GitHubSection />
-              </Suspense>
-            ) : (
-              staticSections[sectionId]
-            );
+        {siteConfig.sectionFlags.about && (
+          <div id="about" className="bg-background scroll-mt-20">
+            <About />
+          </div>
+        )}
 
-          return (
-            <div
-              key={sectionId}
-              id={sectionId}
-              className="bg-background scroll-mt-20"
-            >
-              {content}
-            </div>
-          );
-        })}
+        {siteConfig.sectionFlags.skills && (
+          <div id="skills" className="bg-background scroll-mt-20">
+            <Skills />
+          </div>
+        )}
+
+        <div id="want-to-try" className="bg-background scroll-mt-20">
+          <WantToTry />
+        </div>
+
+        {showGithub && (
+          <div id="github" className="bg-background scroll-mt-20">
+            <Suspense fallback={<GitSkeleton />}>
+              <GitHubSection />
+            </Suspense>
+          </div>
+        )}
+
+        <div id="timeline" className="bg-background scroll-mt-20">
+          <Timeline />
+        </div>
+
+        {siteConfig.sectionFlags.socials && (
+          <div id="socials" className="bg-background scroll-mt-20">
+            <Social />
+          </div>
+        )}
 
         <Footer />
       </main>
@@ -92,7 +66,12 @@ export default function Home() {
       <SectionRail
         items={[
           { id: "hero", label: "top" },
-          ...visibleSections.map((id) => ({ id, label: id })),
+          { id: "about", label: "about" },
+          { id: "skills", label: "stack" },
+          { id: "want-to-try", label: "try" },
+          ...(showGithub ? [{ id: "github", label: "github" }] : []),
+          { id: "timeline", label: "timeline" },
+          { id: "socials", label: "elsewhere" },
         ]}
       />
 

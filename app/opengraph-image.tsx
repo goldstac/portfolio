@@ -6,7 +6,7 @@ import path from "node:path";
 export const runtime = "nodejs";
 
 export const alt =
-  "Aditya Ojha — product engineer building SaaS products in public";
+  "Li Productions — building tools, apps, and systems";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
