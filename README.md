@@ -24,10 +24,6 @@ npm run dev
 
 go to [http://localhost:3000](http://localhost:3000) and check it out.
 
-## contact
-
-reach out on [GitHub](https://github.com/goldstac), [X](https://x.com/LiProductions_), or [Instagram](https://instagram.com/liproductions.dev).
-
 ## license
 
 this project is licensed under the [MIT License](./LICENSE).
