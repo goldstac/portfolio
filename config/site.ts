@@ -4,7 +4,7 @@ import BrandNextjs from "@/public/stacks/nextjs";
 import { BookmarkCheckIcon } from "lucide-react";
 export const siteConfig: PortfolioConfig = {
   meta: {
-    url: "https://luhaidan.dev",
+    url: "https://liproductions.dev",
     title: "Li Productions — Building Tools",
     titleTemplate: "%s | Li Productions",
     shortTitle: "Li Productions",
@@ -25,7 +25,7 @@ export const siteConfig: PortfolioConfig = {
       "Li Productions",
       "Li Productions",
     ],
-    authors: [{ name: "Li Productions", url: "https://luhaidan.dev" }],
+    authors: [{ name: "Li Productions", url: "https://liproductions.dev" }],
     creator: "Li Productions",
     publisher: "Li Productions",
     classification: "Portfolio",
@@ -37,7 +37,7 @@ export const siteConfig: PortfolioConfig = {
       height: 630,
       alt: "Li Productions — building tools and systems",
     },
-    twitterCreator: "@luhaidan",
+    twitterCreator: "@LiProductions_",
     icon: "/favicon.svg",
     appleIcon: "/apple-touch-icon.png",
     googleVerification: "",
@@ -62,10 +62,10 @@ export const siteConfig: PortfolioConfig = {
         userAgent: "*",
         allow: "/",
       },
-      sitemap: "https://luhaidan.dev/sitemap.xml",
+      sitemap: "https://liproductions.dev/sitemap.xml",
     },
     sitemap: [
-      { url: "https://luhaidan.dev", changeFrequency: "monthly", priority: 1 },
+      { url: "https://liproductions.dev", changeFrequency: "monthly", priority: 1 },
     ],
   },
   personal: {
@@ -73,7 +73,7 @@ export const siteConfig: PortfolioConfig = {
     firstName: "Li",
     avatar: {
       src: "/profile.avif",
-      alt: "@luhaidan",
+      alt: "@LiProductions_",
       fallback: "LI",
     },
     location: {

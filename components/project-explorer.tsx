@@ -34,6 +34,7 @@ export interface ProjectExplorerItem {
   showImage?: boolean;
   enabled?: boolean;
   order?: number;
+  tags?: string[];
 }
 
 const defaultSampleProjects: ProjectExplorerItem[] = [];
@@ -106,7 +107,7 @@ function WorkRow({
   onPreviewEnd,
   showHoverPreview,
 }: { project: ProjectExplorerItem; index: number } & PreviewHandlers) {
-  const [name, subtitle] = project.title.split(" — ");
+  const [expanded, setExpanded] = useState(false);
   const href = project.href ?? project.liveUrl ?? (project.id ? `/project/${project.id}` : "#");
   const isExternal = Boolean(
     project.liveUrl ||
@@ -121,57 +122,69 @@ function WorkRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.24, delay: index * 0.045 }}
-      className="relative"
+      className="relative border border-dashed border-border/40 rounded-md"
     >
-      <Link
-        href={href}
-        {...(isExternal
-          ? { target: "_blank", rel: "noopener noreferrer" }
-          : {})}
-        onMouseEnter={
-          showHoverPreview ? () => onPreviewStart(project) : undefined
-        }
-        onMouseLeave={showHoverPreview ? onPreviewEnd : undefined}
-        onFocus={
-          showHoverPreview
-            ? (event) =>
-                onPreviewStart(
-                  project,
-                  event.currentTarget.getBoundingClientRect(),
-                )
-            : undefined
-        }
-        onBlur={showHoverPreview ? onPreviewEnd : undefined}
-        className="group micro-transition flex min-h-11 items-center gap-2 rounded-sm px-3 py-2 hover:bg-muted/40 focus-visible:bg-muted/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
-      >
-        <span className="min-w-0 flex-1 truncate text-sm font-medium transition-colors group-hover:text-primary group-focus-visible:text-primary">
-          {subtitle ? (
-            <>
-              <span className="font-medium text-foreground group-hover:text-primary group-focus-visible:text-primary">
-                {name}
+      <div className="px-3 py-3">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium">{project.title}</span>
+              {project.status ? <StatusBadge status={project.status} /> : null}
+            </div>
+            {project.description && (
+              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                {project.description}
+              </p>
+            )}
+          </div>
+          <div className="flex items-center gap-1 shrink-0">
+            {project.category ? (
+              <span className="font-mono text-[10px] text-muted-foreground/50">
+                {project.category}
               </span>
-              <span className="hidden font-normal text-muted-foreground md:inline md:ml-4">
-                {subtitle}
+            ) : null}
+            <ArrowUpRight
+              aria-hidden="true"
+              className="size-3.5 text-muted-foreground/30"
+            />
+          </div>
+        </div>
+
+        {project.tags && project.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1 mt-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center rounded border border-border/40 bg-muted/30 px-1.5 py-0.5 text-[10px] text-muted-foreground font-mono"
+              >
+                {tag}
               </span>
-            </>
-          ) : (
-            name
+            ))}
+          </div>
+        )}
+
+        <div className="flex items-center gap-3 mt-2">
+          <Link
+            href={href}
+            {...(isExternal
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            className="text-[11px] text-muted-foreground hover:text-foreground transition-colors font-mono"
+          >
+            {project.liveUrl ? "view live →" : project.githubUrl ? "view on github →" : "read more →"}
+          </Link>
+          {project.githubUrl && project.liveUrl && (
+            <Link
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-muted-foreground hover:text-foreground transition-colors font-mono"
+            >
+              github →
+            </Link>
           )}
-        </span>
-
-        {project.status ? <StatusBadge status={project.status} /> : null}
-
-        {project.category ? (
-          <span className="ml-auto hidden shrink-0 font-mono text-[11px] text-muted-foreground/50 sm:block">
-            {project.category}
-          </span>
-        ) : null}
-
-        <ArrowUpRight
-          aria-hidden="true"
-          className="size-3.5 shrink-0 text-muted-foreground/30 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary group-focus-visible:-translate-y-0.5 group-focus-visible:translate-x-0.5 group-focus-visible:text-primary"
-        />
-      </Link>
+        </div>
+      </div>
     </motion.li>
   );
 }
