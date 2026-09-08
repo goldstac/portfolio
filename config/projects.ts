@@ -37,7 +37,7 @@ export const projectsConfig: Project[] = [
     image: "",
     imageAlt: "SyntheraQR",
     liveUrl: "https://syntheraqr.netlify.app",
-    githubUrl: "https://github.com/Synthera-Qr/synthera-qr-cli",
+    githubUrl: "https://github.com/goldstac/SyntheraQr",
     tags: ["QR Code", "CLI", "Web", "Offline"],
     metrics: [
       { icon: "chart", label: "100% offline-ready" },
@@ -47,6 +47,27 @@ export const projectsConfig: Project[] = [
     status: "shipped",
     category: "Tools",
     order: 2,
+    enabled: true,
+  },
+  {
+    id: "syntheraqr-cli",
+    title: "SyntheraQR CLI",
+    description:
+      "Terminal-based QR code generator. Kitty graphics preview, multiple export formats, decode support — all offline.",
+    content: "## What it does\nThe same rendering engine as the web app, but in your terminal. Generate QR codes with inline preview via the Kitty graphics protocol, or fall back to half-block rendering.\n\n## Features\n- Kitty graphics preview\n- Rounded / square / dots styles\n- Gradients\n- PNG · JPG · SVG · WebP export\n- Decode QR codes back to text\n- Self-update from the command line\n- 100% offline-ready\n\n```bash\ncurl -fsSL https://syntheraqr.netlify.app/install | bash\n```",
+    image: "",
+    imageAlt: "SyntheraQR CLI",
+    liveUrl: "",
+    githubUrl: "https://github.com/goldstac/synthera-qr-cli",
+    tags: ["Python", "CLI", "Terminal", "Offline"],
+    metrics: [
+      { icon: "chart", label: "No internet needed" },
+      { icon: "users", label: "Kitty graphics" },
+    ],
+    year: 2025,
+    status: "shipped",
+    category: "CLI",
+    order: 3,
     enabled: true,
   },
 ];

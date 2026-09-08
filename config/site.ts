@@ -191,7 +191,7 @@ export const siteConfig: PortfolioConfig = {
         id: "tl-2",
         date: "2025",
         title: "Started building for real",
-        description: "Shipped first projects, learned by doing — auth, billing, data models, deployment.",
+        description: "Shipped first projects, learned the full loop — auth, databases, and getting things live.",
         type: "shipping",
       },
       {
