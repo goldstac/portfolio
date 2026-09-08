@@ -108,7 +108,7 @@ function WorkRow({
   showHoverPreview,
 }: { project: ProjectExplorerItem; index: number } & PreviewHandlers) {
   const [expanded, setExpanded] = useState(false);
-  const href = project.href ?? project.liveUrl ?? project.githubUrl ?? (project.id ? `/project/${project.id}` : "#");
+  const href = project.href || project.liveUrl || project.githubUrl || (project.id ? `/project/${project.id}` : "#");
   const isExternal = Boolean(
     project.liveUrl || project.githubUrl ||
       (project.href &&
