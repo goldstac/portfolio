@@ -75,7 +75,7 @@ export function Hero() {
           transition={{ ...entryTransition, delay: 0.4 }}
         >
           <AskAI
-            prompt="Hi! I'm on Li Productions' portfolio. Based on this page, introduce them: what they build, their stack, and what they're about."
+            prompt="Hi! I'm on Li Productions' portfolio (https://liproductions.vercel.app). Based on this page, introduce them: what they build, their stack, and what they're about."
             title="Ask an AI about me"
             description="A fresh perspective, from your favorite assistant."
             label="Ask an AI"

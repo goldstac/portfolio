@@ -9,7 +9,7 @@ export const siteConfig: PortfolioConfig = {
     titleTemplate: "%s | Li Productions",
     shortTitle: "Li Productions",
     description:
-      "Li Productions codes in C, C++, and Python, builds CLI tools, GUI apps, and full-stack systems. Dabbles in cybersecurity. Arch Linux user.",
+      "Li Productions codes in C, C++, and Python, plays around with AI, builds CLI tools, GUI apps, and full-stack systems. Dabbles in cybersecurity. Arch Linux user.",
     keywords: [
       "Builder",
       "CLI Tools",
@@ -116,7 +116,7 @@ export const siteConfig: PortfolioConfig = {
   },
   about: {
     title: "What I do",
-    body: "I code in C, C++, and Python — CLI tools, GUI apps, full-stack systems, and web3 projects. I also dabble in cybersecurity. I use Arch Linux. I like making things that are useful, fast, and well put together. I share what I learn — the technical decisions, the mistakes, and the parts that only show up after shipping.",
+    body: "I code in C, C++, and Python — CLI tools, GUI apps, full-stack systems, and web3 projects. I play around with AI a lot. I also dabble in cybersecurity. I use Arch Linux. I like making things that are useful, fast, and well put together. I share what I learn — the technical decisions, the mistakes, and the parts that only show up after shipping.",
   },
   services: {
     title: "What I build",
@@ -183,29 +183,29 @@ export const siteConfig: PortfolioConfig = {
       {
         id: "tl-1",
         date: "2026",
-        title: "Shipping tools and systems",
-        description: "Building CLI tools, SaaS products, and full-stack systems. Cybersecurity on the side.",
+        title: "Shipping everything",
+        description: "CLI tools, SaaS products, full-stack systems, web3 projects — the year of building at full speed.",
         type: "milestone",
       },
       {
         id: "tl-2",
         date: "2025",
         title: "Started building for real",
-        description: "Shipped SaaS products, CLI tools, and web apps. Learned by doing — auth, billing, data models, deployment.",
+        description: "Shipped first projects, learned by doing — auth, billing, data models, deployment.",
         type: "shipping",
       },
       {
         id: "tl-3",
         date: "2025",
         title: "Went deep on the stack",
-        description: "C, C++, Python by hand. AI for the rest. Full-stack systems, cybersecurity, web3.",
+        description: "C, C++, Python by hand. Full-stack systems, cybersecurity, web3.",
         type: "learning",
       },
       {
         id: "tl-4",
         date: "2024",
         title: "Got started",
-        description: "Wrote first lines of code. Picked up programming and started figuring out what to build.",
+        description: "First lines of code. Figured out what to build.",
         type: "milestone",
       },
     ],
