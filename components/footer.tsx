@@ -135,10 +135,10 @@ export function Footer() {
     <footer className="overflow-hidden border-t border-dashed bg-muted/20">
       <div className="px-6 pb-6 pt-8 md:px-8">
         <p className="max-w-md font-serif text-xl italic leading-snug text-foreground md:text-2xl">
-          The soul becomes dyed with the color of its thoughts.
+          it's not a bug, it's a feature I haven't documented yet.
         </p>
         <p className="mt-3 font-mono text-[10px] tracking-[0.2em] text-muted-foreground/80">
-          — MARCUS AURELIUS
+          — EVERY DEVELOPER EVER
         </p>
         <p className="mt-5 font-mono text-[11px] tracking-[0.15em] text-muted-foreground">
           Made with &lt;3 and lots of coffee.

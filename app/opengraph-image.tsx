@@ -75,7 +75,7 @@ export default async function handler() {
               maxWidth: 760,
             }}
           >
-            The soul becomes dyed with the color of its thoughts.
+            It's not a bug, it's a feature I haven't documented yet.
           </div>
         </div>
 
