@@ -8,6 +8,7 @@ import { Skills } from "@/components/skills";
 import Social from "@/components/social";
 import { Timeline } from "@/components/timeline";
 import { WantToTry } from "@/components/want-to-try";
+import { WhoAmI } from "@/components/whoami";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { siteConfig } from "@/config/site";
 import { Suspense } from "react";
@@ -31,6 +32,10 @@ export default function Home() {
             <About />
           </div>
         )}
+
+        <div id="whoami" className="bg-background scroll-mt-20">
+          <WhoAmI />
+        </div>
 
         {siteConfig.sectionFlags.skills && (
           <div id="skills" className="bg-background scroll-mt-20">
@@ -67,6 +72,7 @@ export default function Home() {
         items={[
           { id: "hero", label: "top" },
           { id: "about", label: "about" },
+          { id: "whoami", label: "who am i" },
           { id: "skills", label: "stack" },
           { id: "want-to-try", label: "try" },
           ...(showGithub ? [{ id: "github", label: "github" }] : []),

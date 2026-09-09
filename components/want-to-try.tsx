@@ -52,7 +52,7 @@ export function WantToTry() {
               <span className="text-xs text-muted-foreground font-mono">→</span>
             </div>
             <p className="text-sm text-muted-foreground mt-1">
-              An opinionated Arch Linux setup. Clean dotfiles, fast boot, ready to go.
+              Beautiful, fun &amp; agentic Linux by DHH.
             </p>
           </div>
         </a>

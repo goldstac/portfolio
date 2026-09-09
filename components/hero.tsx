@@ -19,14 +19,26 @@ export function Hero() {
       transition={entryTransition}
     >
       <div className="space-y-6">
-        <motion.h1
-          className="no-js-visible text-4xl sm:text-5xl font-bold tracking-tight"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ...entryTransition, delay: 0.1 }}
-        >
-          {heroConfig.greeting}
-        </motion.h1>
+        <div>
+          <motion.h1
+            className="no-js-visible text-4xl sm:text-5xl font-bold tracking-tight"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...entryTransition, delay: 0.1 }}
+          >
+            {heroConfig.greeting}
+          </motion.h1>
+          <motion.p
+            className="no-js-visible text-sm text-muted-foreground font-mono mt-1"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...entryTransition, delay: 0.14 }}
+          >
+            <WritingUnderline delay={0.4}>
+              Luhaidan Ibraheem
+            </WritingUnderline>
+          </motion.p>
+        </div>
 
         <motion.p
           className="no-js-visible text-xl sm:text-2xl font-medium text-muted-foreground leading-snug text-balance"

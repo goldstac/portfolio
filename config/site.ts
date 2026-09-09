@@ -107,8 +107,8 @@ export const siteConfig: PortfolioConfig = {
   banner: {
     imageSrc: "",
     imageAlt: "",
-    openSourceUrl: "",
-    openSourceTooltip: "",
+    openSourceUrl: "https://github.com/goldstac/portfolio",
+    openSourceTooltip: "view source",
     themeToggleLabel: "toggle theme",
     themeShortcut: "D",
     themeTooltip: "toggle theme",
