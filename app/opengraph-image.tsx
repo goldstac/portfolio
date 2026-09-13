@@ -1,7 +1,5 @@
 import { siteConfig } from "@/config/site";
 import { ImageResponse } from "next/og";
-import { readFileSync } from "node:fs";
-import path from "node:path";
 
 export const runtime = "nodejs";
 
@@ -11,22 +9,57 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function handler() {
-  const banner = readFileSync(
-    path.join(process.cwd(), "public", "images", "banner.png"),
-  );
-  const base64 = banner.toString("base64");
-
   return new ImageResponse(
     <div
       style={{
         display: "flex",
         width: "100%",
         height: "100%",
-        backgroundImage: `url(data:image/png;base64,${base64})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#0a0a0a",
+        color: "#ffffff",
+        fontFamily: "sans-serif",
       }}
-    />,
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "16px",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "64px",
+            fontWeight: "bold",
+            letterSpacing: "-2px",
+          }}
+        >
+          Li Productions
+        </div>
+        <div
+          style={{
+            fontSize: "24px",
+            color: "#888888",
+            fontFamily: "monospace",
+          }}
+        >
+          Luhaidan Ibraheem
+        </div>
+        <div
+          style={{
+            fontSize: "18px",
+            color: "#666666",
+            fontFamily: "monospace",
+            marginTop: "8px",
+          }}
+        >
+          building tools, apps, and systems
+        </div>
+      </div>
+    </div>,
     {
       ...size,
     },
