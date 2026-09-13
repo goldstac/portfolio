@@ -4,7 +4,7 @@ import BrandNextjs from "@/public/stacks/nextjs";
 import { BookmarkCheckIcon } from "lucide-react";
 export const siteConfig: PortfolioConfig = {
   meta: {
-    url: "https://liproductions.dev",
+    url: "https://liproductions.vercel.app",
     title: "Li Productions — Building Tools",
     titleTemplate: "%s | Li Productions",
     shortTitle: "Li Productions",
@@ -24,7 +24,7 @@ export const siteConfig: PortfolioConfig = {
       "Arch Linux",
       "Li Productions",
     ],
-    authors: [{ name: "Luhaidan Ibraheem", url: "https://liproductions.dev" }],
+    authors: [{ name: "Luhaidan Ibraheem", url: "https://liproductions.vercel.app" }],
     creator: "Li Productions",
     publisher: "Li Productions",
     classification: "Portfolio",
@@ -60,10 +60,10 @@ export const siteConfig: PortfolioConfig = {
         userAgent: "*",
         allow: "/",
       },
-      sitemap: "https://liproductions.dev/sitemap.xml",
+      sitemap: "https://liproductions.vercel.app/sitemap.xml",
     },
     sitemap: [
-      { url: "https://liproductions.dev", changeFrequency: "monthly", priority: 1 },
+      { url: "https://liproductions.vercel.app", changeFrequency: "monthly", priority: 1 },
     ],
   },
   personal: {

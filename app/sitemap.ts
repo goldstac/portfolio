@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     })),
     {
-      url: "https://liproductions.dev/whoami",
+      url: "https://liproductions.vercel.app/whoami",
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      url: "https://liproductions.dev/work",
+      url: "https://liproductions.vercel.app/work",
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,

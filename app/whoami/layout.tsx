@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "About Li Productions — a builder who codes in C, C++, and Python, explores AI, and dabbles in cybersecurity.",
   alternates: {
-    canonical: "https://liproductions.dev/whoami",
+    canonical: "https://liproductions.vercel.app/whoami",
   },
 };
 

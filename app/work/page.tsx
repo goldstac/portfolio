@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Projects by Li Productions — CLI tools, QR code generators, chatbots, and simulations.",
   alternates: {
-    canonical: "https://liproductions.dev/work",
+    canonical: "https://liproductions.vercel.app/work",
   },
 };
 
