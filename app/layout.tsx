@@ -102,6 +102,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": `${siteConfig.meta.url}/#person`,
       name: siteConfig.personal.fullName,
+      alternateName: "Li Productions",
       url: siteConfig.meta.url,
       jobTitle: "Builder — CLI tools, GUI apps, cybersecurity, full-stack systems",
       description: siteConfig.meta.description,

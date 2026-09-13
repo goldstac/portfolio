@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "react-icons", "date-fns"],
+    optimizePackageImports: ["lucide-react", "react-icons", "date-fns", "motion"],
   },
   async headers() {
     return [

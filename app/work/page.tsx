@@ -3,6 +3,17 @@ import { ProjectExplorer } from "@/components/project-explorer";
 import { projectsConfig, projectsSectionConfig } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { GithubIcon } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description:
+    "Projects by Li Productions — CLI tools, QR code generators, chatbots, and simulations.",
+  alternates: {
+    canonical: "https://liproductions.dev/work",
+  },
+};
 
 export default function WorkPage() {
   return (
@@ -10,7 +21,17 @@ export default function WorkPage() {
       id="main-content"
       className="relative min-h-dvh gap-y-6 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
     >
-      <div className="px-6 pt-16">
+      <div className="px-6 pt-16 pb-4">
+        <Link
+          href="/"
+          className="text-xs text-muted-foreground font-mono hover:text-foreground transition-colors"
+        >
+          ← back
+        </Link>
+      </div>
+
+      <div className="px-6">
+        <h1 className="sr-only">Work</h1>
         <a
           href={`https://github.com/${siteConfig.personal.githubUsername}`}
           target="_blank"

@@ -171,9 +171,9 @@ function WorkRow({
               : {})}
             className="text-[11px] text-muted-foreground hover:text-foreground transition-colors font-mono"
           >
-            {project.liveUrl ? "view live →" : project.githubUrl ? "view on github →" : "read more →"}
+            {project.href ? "read more →" : project.liveUrl ? "view live →" : project.githubUrl ? "view on github →" : "read more →"}
           </Link>
-          {project.githubUrl && project.liveUrl && (
+          {project.githubUrl && (project.liveUrl || project.href) && (
             <Link
               href={project.githubUrl}
               target="_blank"
@@ -414,6 +414,7 @@ export function ProjectExplorer({
                   alt={activeProject.imageAlt ?? ""}
                   width={600}
                   height={338}
+                  sizes="300px"
                   className="aspect-video w-full object-cover"
                 />
               ) : (

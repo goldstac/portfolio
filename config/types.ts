@@ -42,7 +42,7 @@ export interface SiteMetaConfig {
   twitterCreator: string;
   icon: string;
   appleIcon: string;
-  googleVerification: string;
+  googleVerification?: string;
   manifest: MetadataRoute.Manifest;
   robots: MetadataRoute.Robots;
   sitemap: Array<{
@@ -190,6 +190,7 @@ export interface Project {
   imageAlt: string;
   liveUrl?: string;
   githubUrl?: string;
+  href?: string;
 
   year: number;
   status: ProjectStatus;

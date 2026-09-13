@@ -1,0 +1,8 @@
+/* Load DM Sans separately from your font provider. */
+:root {
+  --blob-font: 'DM Sans';
+  --blob-accent: oklch(0.77 0.12 45);
+  --blob-ink: oklch(0.18 0.008 260);
+  --blob-paper: oklch(0.98 0.005 100);
+  --blob-tint: oklch(0.9275 0.03375 86.25);
+}

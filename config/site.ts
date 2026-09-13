@@ -23,9 +23,8 @@ export const siteConfig: PortfolioConfig = {
       "Python",
       "Arch Linux",
       "Li Productions",
-      "Li Productions",
     ],
-    authors: [{ name: "Li Productions", url: "https://liproductions.dev" }],
+    authors: [{ name: "Luhaidan Ibraheem", url: "https://liproductions.dev" }],
     creator: "Li Productions",
     publisher: "Li Productions",
     classification: "Portfolio",
@@ -40,7 +39,6 @@ export const siteConfig: PortfolioConfig = {
     twitterCreator: "@LiProductions_",
     icon: "/favicon.svg",
     appleIcon: "/apple-touch-icon.png",
-    googleVerification: "",
     manifest: {
       name: "Li Productions — Building Tools",
       short_name: "Li Productions",
@@ -69,7 +67,7 @@ export const siteConfig: PortfolioConfig = {
     ],
   },
   personal: {
-    fullName: "Li Productions",
+    fullName: "Luhaidan Ibraheem",
     firstName: "Li",
     avatar: {
       src: "/profile.avif",
@@ -106,7 +104,7 @@ export const siteConfig: PortfolioConfig = {
   },
   banner: {
     imageSrc: "",
-    imageAlt: "",
+    imageAlt: "Li Productions portfolio banner",
     openSourceUrl: "https://github.com/goldstac/portfolio",
     openSourceTooltip: "view source",
     themeToggleLabel: "toggle theme",
@@ -178,7 +176,7 @@ export const siteConfig: PortfolioConfig = {
     ],
   },
   timeline: {
-    title: "What I do",
+    title: "Journey",
     items: [
       {
         id: "tl-1",

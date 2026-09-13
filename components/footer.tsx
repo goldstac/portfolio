@@ -1,3 +1,5 @@
+"use client";
+
 /* ------------------------------------------------------------------ */
 /* Garden palette — olive stems with colored blooms that read well on  */
 /* the theme-aware secondary surface in both light and dark mode.      */

@@ -67,6 +67,15 @@ export function ProjectContent({ project }: { project: Project }) {
             Back to Home
           </Link>
         </Button>
+        <Button
+          asChild
+          variant="link"
+          className="-ml-4 text-muted-foreground hover:text-foreground mb-8"
+        >
+          <Link href="/work">
+            All Projects
+          </Link>
+        </Button>
         <h1 className="text-2xl font-bold tracking-tight md:text-3xl mt-2">
           {project.title}
         </h1>
@@ -78,20 +87,22 @@ export function ProjectContent({ project }: { project: Project }) {
         </p>
       </motion.div>
 
-      <motion.div
-        variants={imageVariants}
-        className="aspect-video relative bg-muted overflow-hidden"
-      >
-        <Image
-          src={project.image}
-          alt={project.imageAlt}
-          fill
-          sizes="(min-width: 768px) 768px, 100vw"
-          className="object-cover"
-          priority
-        />
-        <div className="pointer-events-none absolute inset-0 ring-1 ring-black/10 ring-inset dark:ring-white/15" />
-      </motion.div>
+      {project.image ? (
+        <motion.div
+          variants={imageVariants}
+          className="aspect-video relative bg-muted overflow-hidden"
+        >
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            sizes="(min-width: 768px) 768px, 100vw"
+            className="object-cover"
+            priority
+          />
+          <div className="pointer-events-none absolute inset-0 ring-1 ring-black/10 ring-inset dark:ring-white/15" />
+        </motion.div>
+      ) : null}
 
       <div className="px-6 mt-4 space-y-8">
         <motion.div

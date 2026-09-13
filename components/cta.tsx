@@ -53,12 +53,12 @@ export function CTA() {
         <div className="px-6 mb-6">
           <Button asChild size="lg" className="w-fit">
             <Link
-              href="https://x.com/AdiKodez"
+              href="https://x.com/LiProductions_"
               target="_blank"
               rel="noopener noreferrer"
             >
               <X data-icon="inline-start" />
-              Follow @AdiKodez
+              Follow @LiProductions_
             </Link>
           </Button>
         </div>

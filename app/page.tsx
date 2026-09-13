@@ -39,7 +39,9 @@ export default function Home() {
 
         {siteConfig.sectionFlags.skills && (
           <div id="skills" className="bg-background scroll-mt-20">
-            <Skills />
+            <Suspense fallback={<div className="h-96" />}>
+              <Skills />
+            </Suspense>
           </div>
         )}
 

@@ -1,27 +1,25 @@
-import { getEnabledComponents } from "@/config/components";
 import { projectsConfig } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseEntries = siteConfig.meta.sitemap.map((item) => ({
-    ...item,
-    lastModified: new Date(),
-  }));
-
-  const componentEntries: MetadataRoute.Sitemap = [
-    {
-      url: `${siteConfig.meta.url}/components`,
+  const baseEntries: MetadataRoute.Sitemap = [
+    ...siteConfig.meta.sitemap.map((item) => ({
+      ...item,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    ...getEnabledComponents().map((c) => ({
-      url: `${siteConfig.meta.url}/components/${c.id}`,
+    })),
+    {
+      url: "https://liproductions.dev/whoami",
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
+      priority: 0.8,
+    },
+    {
+      url: "https://liproductions.dev/work",
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
   ];
 
   const projectEntries: MetadataRoute.Sitemap = projectsConfig
@@ -33,5 +31,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  return [...baseEntries, ...componentEntries, ...projectEntries];
+  return [...baseEntries, ...projectEntries];
 }

@@ -1,0 +1,11 @@
+{
+  "name": "Petal",
+  "font": "DM Sans",
+  "colors": {
+    "accent": "oklch(0.77 0.12 45)",
+    "ink": "oklch(0.18 0.008 260)",
+    "paper": "oklch(0.98 0.005 100)",
+    "tint": "oklch(0.9275 0.03375 86.25)"
+  },
+  "mascot": "Static brand mascot; transparent background"
+}

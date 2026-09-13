@@ -27,7 +27,6 @@ export function AIMascot({
   className,
 }: {
   awake?: boolean;
-  /** Direction the eyes look while awake: point it at the popover. */
   gaze?: MascotGaze;
   size?: "default" | "compact";
   brand?: boolean;

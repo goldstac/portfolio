@@ -71,6 +71,28 @@ export const projectsConfig: Project[] = [
     enabled: true,
   },
   {
+    id: "pytop",
+    title: "pytop",
+    description:
+      "A Python-based system monitor. Lightweight, fast, and available on AUR.",
+    content: "## What it does\nA terminal-based system monitor written in Python. Shows CPU, memory, disk, and process info in a clean TUI.\n\n## Install\n\n```bash\nyay -S pytop\n```\n\nOr build from source:\n\n```bash\ngit clone https://github.com/goldstac/pytop.git\ncd pytop\npip install -r requirements.txt\npython pytop\n```\n\n## Features\n- Real-time CPU and memory usage\n- Process list with sorting\n- Disk usage overview\n- Lightweight — runs on anything\n- Clean terminal UI\n\n## Links\n- [AUR Package](https://aur.archlinux.org/packages/pytop)\n- [GitHub](https://github.com/goldstac/pytop)",
+    image: "/projects/pytop.png",
+    imageAlt: "pytop terminal system monitor running on Arch Linux",
+    href: "/project/pytop",
+    liveUrl: "",
+    githubUrl: "https://github.com/goldstac/pytop",
+    tags: ["Python", "CLI", "AUR", "System Monitor"],
+    metrics: [
+      { icon: "chart", label: "Available on AUR" },
+      { icon: "users", label: "yay -S pytop" },
+    ],
+    year: 2026,
+    status: "shipped",
+    category: "CLI",
+    order: 1,
+    enabled: true,
+  },
+  {
     id: "talon-apex-simulation",
     title: "Talon Apex Simulation",
     description:

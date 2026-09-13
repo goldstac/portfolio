@@ -25,9 +25,11 @@ export async function generateMetadata({
   }
 
   const url = `${siteConfig.meta.url}/project/${project.id}`;
-  const ogImage = project.image.startsWith("http")
-    ? project.image
-    : `${siteConfig.meta.url}${project.image}`;
+  const ogImage = project.image
+    ? project.image.startsWith("http")
+      ? project.image
+      : `${siteConfig.meta.url}${project.image}`
+    : `${siteConfig.meta.url}/opengraph-image`;
 
   return {
     title: project.title,

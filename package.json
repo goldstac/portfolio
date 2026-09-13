@@ -19,6 +19,7 @@
     "cn": "^0.2.6",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
+    "flag-cloth": "^0.1.2",
     "geist": "^1.7.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.563.0",

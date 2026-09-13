@@ -39,24 +39,9 @@ export function WhoAmI() {
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
           I code, I build, I ship. Mostly CLI tools, web apps, and whatever
-          else keeps me up at 3am. Arch Linux user. Cybersecurity tinkerer.
-          I break things so I can figure out how they work.
+          else keeps me up at 3am. I break things so I can figure out how
+          they work.
         </p>
-        <div className="flex flex-wrap gap-2 text-xs font-mono text-muted-foreground/60">
-          <span>C</span>
-          <span className="text-border">·</span>
-          <span>C++</span>
-          <span className="text-border">·</span>
-          <span>Python</span>
-          <span className="text-border">·</span>
-          <span>AI</span>
-          <span className="text-border">·</span>
-          <span>Cybersecurity</span>
-          <span className="text-border">·</span>
-          <span>Web3</span>
-          <span className="text-border">·</span>
-          <span>Arch btw</span>
-        </div>
         <Link
           href="/whoami"
           className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono mt-1"
