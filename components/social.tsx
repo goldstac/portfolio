@@ -81,7 +81,7 @@ const Social = () => {
       <h2 className="section-heading mb-3">{socialSectionConfig.title}</h2>
 
       <div className="px-6">
-        <div className="flex flex-wrap gap-x-6 gap-y-2">
+        <div className="flex flex-col gap-3">
           {sortedSocials.map((social) => {
             const isCopyAction = social.action === "copy";
 
@@ -111,22 +111,32 @@ const Social = () => {
             }
 
             return (
-              <Tooltip key={social.id}>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={social.href ?? "#"}
-                    target={social.action === "external" ? "_blank" : undefined}
-                    rel={social.action === "external" ? "noopener noreferrer" : undefined}
-                    className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
-                  >
-                    <SocialIconNode icon={social.icon} />
-                    <span>{social.handle}</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{social.tooltipDefault ?? social.platform}</p>
-                </TooltipContent>
-              </Tooltip>
+              <div key={social.id} className="flex items-center gap-3">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={social.href ?? "#"}
+                      target={social.action === "external" ? "_blank" : undefined}
+                      rel={social.action === "external" ? "noopener noreferrer" : undefined}
+                      className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
+                    >
+                      <SocialIconNode icon={social.icon} />
+                      <span>{social.handle}</span>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{social.tooltipDefault ?? social.platform}</p>
+                  </TooltipContent>
+                </Tooltip>
+                <Link
+                  href={social.href ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-md border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] font-mono text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
+                >
+                  follow
+                </Link>
+              </div>
             );
           })}
         </div>
