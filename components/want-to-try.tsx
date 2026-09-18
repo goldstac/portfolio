@@ -31,14 +31,14 @@ export function WantToTry() {
           href="https://omarchy.org"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-4 rounded-lg border border-border/60 p-4 transition-colors hover:bg-muted/30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          className="group flex items-center gap-4 rounded-lg border border-border/60 p-4 transition-all duration-200 hover:bg-muted/30 hover:border-border hover:shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         >
           <Image
             src="/stacks/omarchy-logo.svg"
             alt="Omarchy"
             width={48}
             height={48}
-            className="shrink-0"
+            className="shrink-0 transition-transform duration-200 group-hover:scale-105"
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
@@ -49,7 +49,7 @@ export function WantToTry() {
                 height={20}
                 className="h-5 w-auto"
               />
-              <span className="text-xs text-muted-foreground font-mono">→</span>
+              <span className="text-xs text-muted-foreground font-mono transition-transform duration-200 group-hover:translate-x-1">→</span>
             </div>
             <p className="text-sm text-muted-foreground mt-1">
               Beautiful, fun &amp; agentic Linux by DHH.

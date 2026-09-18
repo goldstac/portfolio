@@ -68,7 +68,7 @@ export function Skills() {
     >
       <h2 className="section-heading mb-4">{skillsSectionConfig.title}</h2>
 
-      <div className="px-6 space-y-4">
+      <div className="space-y-4">
         {categories.map((category) => {
           const categorySkills = enabledSkills.filter(
             (skill) => skill.category === category.id
@@ -86,10 +86,10 @@ export function Skills() {
                   return (
                     <span
                       key={skill.id}
-                      className={`inline-flex items-center gap-1 border px-2 py-0.5 text-xs text-muted-foreground ${
+                      className={`inline-flex items-center gap-1 border px-2 py-0.5 text-xs text-muted-foreground transition-all duration-150 hover:bg-muted/50 hover:text-foreground cursor-default ${
                         skill.id === "everything"
                           ? "border-solid border-foreground/30 bg-foreground/5 font-semibold tracking-wider text-foreground"
-                          : "border-dashed"
+                          : "border-dashed hover:border-solid hover:border-foreground/20"
                       }`}
                       aria-label={skill.name}
                     >

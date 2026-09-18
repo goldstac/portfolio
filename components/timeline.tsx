@@ -17,8 +17,9 @@ export function Timeline() {
     >
       <h2 className="section-heading mb-4">{siteConfig.timeline.title}</h2>
 
-      <div className="px-6">
-        <div className="space-y-3">
+      <div className="relative">
+        <div className="absolute left-[19px] top-1 bottom-1 w-px bg-border/40" />
+        <div className="space-y-4">
           {items.map((item, index) => (
             <motion.div
               key={item.id}
@@ -26,12 +27,13 @@ export function Timeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.2, delay: index * 0.06 }}
-              className="flex items-baseline gap-3"
+              className="relative flex items-start gap-3 group"
             >
-              <span className="font-mono text-[11px] text-muted-foreground shrink-0 w-10">
-                {item.date}
-              </span>
+              <div className="relative z-10 mt-1 h-2 w-2 shrink-0 rounded-full bg-border group-hover:bg-foreground/40 transition-colors duration-200" />
               <span className="text-sm text-muted-foreground">
+                <span className="font-mono text-[11px] text-muted-foreground/60 mr-2">
+                  {item.date}
+                </span>
                 <span className="text-foreground font-medium">{item.title}</span>
                 {" — "}
                 {item.description}

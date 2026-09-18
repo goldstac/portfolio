@@ -132,7 +132,7 @@ const Social = () => {
                   href={social.href ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] font-mono text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
+                  className="inline-flex items-center rounded-md border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] font-mono text-muted-foreground transition-all duration-150 hover:bg-foreground hover:text-background hover:border-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
                 >
                   follow
                 </Link>

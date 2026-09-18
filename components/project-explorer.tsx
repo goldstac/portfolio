@@ -407,7 +407,7 @@ export function ProjectExplorer({
             style={{ x: springX, y: springY }}
             className="pointer-events-none fixed left-0 top-0 z-50 w-[300px]"
           >
-            <div className="overflow-hidden rounded-md border bg-background shadow-xl shadow-black/10">
+            <div className="overflow-hidden rounded-md border bg-background shadow-2xl shadow-black/20 ring-1 ring-border/20">
               {hasImage ? (
                 <Image
                   src={activeProject.image!}
@@ -422,8 +422,8 @@ export function ProjectExplorer({
                   <ImageIcon className="size-8 stroke-[1.25] text-muted-foreground/60" />
                 </div>
               )}
-              <div className="border-t px-3 py-1.5 font-mono text-[11px] text-muted-foreground">
-                {activeProject.title}
+              <div className="border-t px-3 py-2 font-mono text-[11px] text-muted-foreground">
+                <span className="text-foreground/80">{activeProject.title}</span>
               </div>
             </div>
           </motion.div>

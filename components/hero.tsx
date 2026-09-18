@@ -13,23 +13,26 @@ const entryTransition = {
 export function Hero() {
   return (
     <motion.section
-      className="no-js-visible relative z-20 px-6 pt-16 pb-4"
+      className="no-js-visible relative z-20 px-6 pt-20 pb-6"
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={entryTransition}
     >
-      <div className="space-y-6">
+      <div className="space-y-8">
         <div>
-          <motion.h1
-            className="no-js-visible text-4xl sm:text-5xl font-bold tracking-tight"
+          <motion.div
+            className="relative"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...entryTransition, delay: 0.1 }}
           >
-            {heroConfig.greeting}
-          </motion.h1>
+            <div className="absolute -inset-x-20 -inset-y-10 bg-gradient-to-r from-transparent via-muted/30 to-transparent blur-3xl pointer-events-none" />
+            <h1 className="no-js-visible text-5xl sm:text-6xl font-bold tracking-tighter relative">
+              {heroConfig.greeting}
+            </h1>
+          </motion.div>
           <motion.p
-            className="no-js-visible text-sm text-muted-foreground font-mono mt-1"
+            className="no-js-visible text-sm text-muted-foreground font-mono mt-2"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...entryTransition, delay: 0.14 }}
@@ -72,12 +75,16 @@ export function Hero() {
         </motion.p>
 
         <motion.div
-          className="no-js-visible flex items-center gap-4 text-xs text-muted-foreground font-mono"
+          className="no-js-visible flex items-center gap-6"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...entryTransition, delay: 0.32 }}
         >
-          <span>2024 — 2026</span>
+          <div className="flex items-center gap-2">
+            <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-xs text-muted-foreground font-mono">available for work</span>
+          </div>
+          <span className="text-xs text-muted-foreground/40 font-mono">2024 — 2026</span>
         </motion.div>
 
         <motion.div

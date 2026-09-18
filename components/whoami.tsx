@@ -26,14 +26,14 @@ export function WhoAmI() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={entryTransition}
-        className="space-y-3"
+        className="space-y-4"
       >
         <div className="flex items-center gap-3">
           <span className="text-lg font-bold">Li Productions</span>
-          <span className="text-xs text-muted-foreground font-mono border border-dashed border-border/40 rounded px-2 py-0.5">
+          <span className="text-xs text-muted-foreground font-mono border border-dashed border-border/40 rounded px-2 py-0.5 transition-colors hover:border-foreground/20 hover:text-foreground">
             Luhaidan Ibraheem
           </span>
-          <span className="text-xs text-muted-foreground font-mono border border-dashed border-border/40 rounded px-2 py-0.5">
+          <span className="text-xs text-muted-foreground font-mono border border-dashed border-border/40 rounded px-2 py-0.5 transition-colors hover:border-foreground/20 hover:text-foreground">
             @LiProductions_
           </span>
         </div>
@@ -44,7 +44,7 @@ export function WhoAmI() {
         </p>
         <Link
           href="/whoami"
-          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono mt-1"
+          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-all duration-150 font-mono mt-1 hover:gap-2"
         >
           read more →
         </Link>
