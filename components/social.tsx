@@ -76,9 +76,9 @@ const Social = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-      className="no-js-visible border-t border-dashed pt-6"
+      className="no-js-visible px-6 border-t border-dashed pt-6"
     >
-      <h2 className="section-heading mb-3">{socialSectionConfig.title}</h2>
+      <h2 className="section-heading mb-4">{socialSectionConfig.title}</h2>
 
       <div className="px-6">
         <div className="flex flex-col gap-3">

@@ -64,9 +64,9 @@ export function Skills() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.2, delay: 0.1 }}
-      className="border-t border-dashed pt-6"
+      className="px-6 border-t border-dashed pt-6"
     >
-      <h2 className="section-heading mb-3">{skillsSectionConfig.title}</h2>
+      <h2 className="section-heading mb-4">{skillsSectionConfig.title}</h2>
 
       <div className="px-6 space-y-4">
         {categories.map((category) => {

@@ -10,15 +10,13 @@ export const About = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className="no-js-visible border-t border-dashed pt-6"
+      className="no-js-visible px-6 border-t border-dashed pt-6"
       id="about"
     >
-      <h2 className="section-heading mb-3">{siteConfig.about.title}</h2>
-      <div className="px-6">
-        <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
+      <h2 className="section-heading mb-4">{siteConfig.about.title}</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
           {siteConfig.about.body}
         </p>
-      </div>
     </motion.section>
   );
 };

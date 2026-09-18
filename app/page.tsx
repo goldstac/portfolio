@@ -2,6 +2,7 @@ import { About } from "@/components/about";
 import { Footer } from "@/components/footer";
 import { GitHubSection } from "@/components/github-section";
 import { Hero } from "@/components/hero";
+import { ProjectExplorer } from "@/components/project-explorer";
 import { SectionRail } from "@/components/section-rail";
 import { GitSkeleton } from "@/components/skeletons/github-skeleton";
 import { Skills } from "@/components/skills";
@@ -10,6 +11,7 @@ import { Timeline } from "@/components/timeline";
 import { WantToTry } from "@/components/want-to-try";
 import { WhoAmI } from "@/components/whoami";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import { projectsConfig, projectsSectionConfig } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { Suspense } from "react";
 
@@ -21,10 +23,14 @@ export default function Home() {
     <>
       <main
         id="main-content"
-        className="relative min-h-dvh gap-y-6 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
+        className="relative min-h-dvh gap-y-8 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
       >
         <div id="hero" className="bg-background scroll-mt-20">
           <Hero />
+        </div>
+
+        <div className="px-6">
+          <div className="h-px bg-border/40" />
         </div>
 
         {siteConfig.sectionFlags.about && (
@@ -44,6 +50,13 @@ export default function Home() {
             </Suspense>
           </div>
         )}
+
+        <div id="work" className="bg-background scroll-mt-20">
+          <ProjectExplorer
+            projects={projectsConfig}
+            title={projectsSectionConfig.title}
+          />
+        </div>
 
         <div id="want-to-try" className="bg-background scroll-mt-20">
           <WantToTry />
@@ -76,6 +89,7 @@ export default function Home() {
           { id: "about", label: "about" },
           { id: "whoami", label: "who am i" },
           { id: "skills", label: "stack" },
+          { id: "work", label: "work" },
           { id: "want-to-try", label: "try" },
           ...(showGithub ? [{ id: "github", label: "github" }] : []),
           { id: "timeline", label: "timeline" },
