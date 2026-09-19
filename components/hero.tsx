@@ -80,10 +80,6 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...entryTransition, delay: 0.32 }}
         >
-          <div className="flex items-center gap-2">
-            <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs text-muted-foreground font-mono">available for work</span>
-          </div>
           <span className="text-xs text-muted-foreground/40 font-mono">2024 — 2026</span>
         </motion.div>
 
