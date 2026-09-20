@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
+import { Spotlight } from "@/components/spotlight";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/next";
@@ -156,6 +157,7 @@ export default function RootLayout({
           <style>{`.no-js-visible { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; stroke-dasharray: none !important; }`}</style>
         </noscript>
         <ThemeProvider>
+          <Spotlight />
           <TooltipProvider>
             <SiteHeader />
             {children}

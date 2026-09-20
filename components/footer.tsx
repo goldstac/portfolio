@@ -134,16 +134,23 @@ const PLANTS: Plant[] = [
 
 export function Footer() {
   return (
-    <footer className="overflow-hidden border-t border-dashed bg-muted/20">
-      <div className="px-6 pb-6 pt-8 md:px-8">
-        <p className="max-w-md font-serif text-xl italic leading-snug text-foreground md:text-2xl">
+    <footer className="overflow-hidden border-t border-dashed bg-muted/10">
+      <div className="px-6 pb-6 pt-10 md:px-8">
+        <p className="max-w-md font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
           it's not a bug, it's a feature I haven't documented yet.
         </p>
-        <p className="mt-3 font-mono text-[10px] tracking-[0.2em] text-muted-foreground/80">
-          — EVERY DEVELOPER EVER
+        <p className="mt-3 font-mono text-[10px] tracking-[0.25em] text-muted-foreground/50 uppercase">
+          — Every Developer Ever
         </p>
-        <p className="mt-5 font-mono text-[11px] tracking-[0.15em] text-muted-foreground">
-          Made with &lt;3 and lots of coffee.
+        <div className="mt-8 flex items-center gap-3">
+          <div className="h-px flex-1 bg-gradient-to-r from-border/60 to-transparent" />
+          <span className="font-mono text-[10px] text-muted-foreground/40 tracking-widest">
+            &lt;3
+          </span>
+          <div className="h-px flex-1 bg-gradient-to-l from-border/60 to-transparent" />
+        </div>
+        <p className="mt-4 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/50 text-center">
+          Made with coffee and late nights.
         </p>
       </div>
 
