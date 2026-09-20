@@ -31,16 +31,16 @@ export function WantToTry() {
           href="https://omarchy.org"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-4 rounded-lg border border-border/60 p-4 transition-all duration-200 hover:bg-muted/30 hover:border-border hover:shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          className="group flex items-center gap-4 rounded-lg border border-dashed border-border/40 p-4 transition-all duration-300 hover:border-border/60 hover:bg-muted/20 hover:shadow-lg hover:shadow-black/[0.03] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring card-glow"
         >
           <Image
             src="/stacks/omarchy-logo.svg"
             alt="Omarchy"
             width={48}
             height={48}
-            className="shrink-0 transition-transform duration-200 group-hover:scale-105"
+            className="shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
           />
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 relative z-10">
             <div className="flex items-center gap-2">
               <Image
                 src="/stacks/omarchy-wordmark.svg"
@@ -49,7 +49,7 @@ export function WantToTry() {
                 height={20}
                 className="h-5 w-auto"
               />
-              <span className="text-xs text-muted-foreground font-mono transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <span className="text-xs text-muted-foreground font-mono transition-all duration-300 group-hover:translate-x-1 group-hover:text-foreground">→</span>
             </div>
             <p className="text-sm text-muted-foreground mt-1">
               Beautiful, fun &amp; agentic Linux by DHH.

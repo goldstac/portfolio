@@ -77,7 +77,7 @@ export function Skills() {
 
           return (
             <div key={category.id} className="flex flex-col sm:flex-row sm:items-center gap-2">
-              <span className="shrink-0 w-28 font-mono text-[11px] text-muted-foreground">
+              <span className="shrink-0 w-28 font-mono text-[11px] text-muted-foreground/60">
                 {category.label}
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -86,10 +86,10 @@ export function Skills() {
                   return (
                     <span
                       key={skill.id}
-                      className={`inline-flex items-center gap-1 border px-2 py-0.5 text-xs text-muted-foreground transition-all duration-150 hover:bg-muted/50 hover:text-foreground cursor-default ${
+                      className={`inline-flex items-center gap-1 border border-dashed px-2 py-0.5 text-xs text-muted-foreground transition-all duration-200 hover:bg-muted/40 hover:text-foreground hover:border-solid hover:border-foreground/20 cursor-default ${
                         skill.id === "everything"
-                          ? "border-solid border-foreground/30 bg-foreground/5 font-semibold tracking-wider text-foreground"
-                          : "border-dashed hover:border-solid hover:border-foreground/20"
+                          ? "!border-solid !border-foreground/30 !bg-foreground/5 !font-semibold !tracking-wider !text-foreground"
+                          : ""
                       }`}
                       aria-label={skill.name}
                     >

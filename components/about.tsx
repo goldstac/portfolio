@@ -15,8 +15,8 @@ export const About = () => {
     >
       <h2 className="section-heading mb-4">{siteConfig.about.title}</h2>
       <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
-          {siteConfig.about.body}
-        </p>
+        {siteConfig.about.body}
+      </p>
     </motion.section>
   );
 };

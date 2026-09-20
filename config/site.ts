@@ -37,8 +37,8 @@ export const siteConfig: PortfolioConfig = {
       alt: "Li Productions — building tools and systems",
     },
     twitterCreator: "@LiProductions_",
-    icon: "/favicon.svg",
-    appleIcon: "/apple-touch-icon.png",
+    icon: "",
+    appleIcon: "",
     manifest: {
       name: "Li Productions — Building Tools",
       short_name: "Li Productions",
@@ -47,13 +47,7 @@ export const siteConfig: PortfolioConfig = {
       display: "standalone",
       background_color: "#fafafa",
       theme_color: "#18181b",
-      icons: [
-        {
-          src: "/favicon.ico",
-          sizes: "any",
-          type: "image/x-icon",
-        },
-      ],
+      icons: [],
     },
     robots: {
       rules: {

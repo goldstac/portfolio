@@ -13,7 +13,7 @@ const entryTransition = {
 export function Hero() {
   return (
     <motion.section
-      className="no-js-visible relative z-20 px-6 pt-20 pb-6"
+      className="no-js-visible relative z-20 px-6 pt-20 pb-8"
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={entryTransition}
@@ -26,13 +26,13 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...entryTransition, delay: 0.1 }}
           >
-            <div className="absolute -inset-x-20 -inset-y-10 bg-gradient-to-r from-transparent via-muted/30 to-transparent blur-3xl pointer-events-none" />
-            <h1 className="no-js-visible text-5xl sm:text-6xl font-bold tracking-tighter relative">
+            <div className="absolute -inset-x-32 -inset-y-16 bg-gradient-to-br from-muted/40 via-transparent to-muted/20 blur-3xl pointer-events-none" />
+            <h1 className="no-js-visible text-6xl sm:text-7xl font-bold tracking-[-0.04em] relative">
               {heroConfig.greeting}
             </h1>
           </motion.div>
           <motion.p
-            className="no-js-visible text-sm text-muted-foreground font-mono mt-2"
+            className="no-js-visible text-sm text-muted-foreground font-mono mt-3"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...entryTransition, delay: 0.14 }}
@@ -44,13 +44,13 @@ export function Hero() {
         </div>
 
         <motion.p
-          className="no-js-visible text-xl sm:text-2xl font-medium text-muted-foreground leading-snug text-balance"
+          className="no-js-visible text-xl sm:text-2xl font-medium text-muted-foreground/80 leading-snug text-balance"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...entryTransition, delay: 0.18 }}
         >
           I build{" "}
-          <span className="underline decoration-border/50 underline-offset-4">
+          <span className="text-foreground">
             <WritingUnderline delay={0.8}>
               {heroConfig.highlightedPhrases[0]}
             </WritingUnderline>
@@ -66,7 +66,7 @@ export function Hero() {
         </motion.p>
 
         <motion.p
-          className="no-js-visible text-sm text-muted-foreground leading-relaxed max-w-md"
+          className="no-js-visible text-sm text-muted-foreground/70 leading-relaxed max-w-md"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...entryTransition, delay: 0.24 }}

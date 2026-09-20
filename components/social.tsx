@@ -111,14 +111,14 @@ const Social = () => {
             }
 
             return (
-              <div key={social.id} className="flex items-center gap-3">
+              <div key={social.id} className="flex items-center gap-3 group">
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
                       href={social.href ?? "#"}
                       target={social.action === "external" ? "_blank" : undefined}
                       rel={social.action === "external" ? "noopener noreferrer" : undefined}
-                      className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
+                      className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
                     >
                       <SocialIconNode icon={social.icon} />
                       <span>{social.handle}</span>
@@ -132,7 +132,7 @@ const Social = () => {
                   href={social.href ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] font-mono text-muted-foreground transition-all duration-150 hover:bg-foreground hover:text-background hover:border-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
+                  className="inline-flex items-center rounded-md border border-dashed border-border/40 bg-muted/20 px-2.5 py-1 text-[11px] font-mono text-muted-foreground transition-all duration-200 hover:bg-foreground hover:text-background hover:border-foreground hover:shadow-md hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground/20"
                 >
                   follow
                 </Link>

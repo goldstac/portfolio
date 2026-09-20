@@ -23,14 +23,10 @@ export default function Home() {
     <>
       <main
         id="main-content"
-        className="relative min-h-dvh gap-y-8 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
+        className="relative min-h-dvh gap-y-0 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
       >
         <div id="hero" className="bg-background scroll-mt-20">
           <Hero />
-        </div>
-
-        <div className="px-6">
-          <div className="h-px bg-border/40" />
         </div>
 
         {siteConfig.sectionFlags.about && (

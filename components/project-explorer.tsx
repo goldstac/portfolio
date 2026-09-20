@@ -122,9 +122,9 @@ function WorkRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.24, delay: index * 0.045 }}
-      className="relative border border-dashed border-border/40 rounded-md"
+      className="relative border border-dashed border-border/40 rounded-md card-glow hover:border-border/60 transition-colors"
     >
-      <div className="px-3 py-3">
+      <div className="px-3 py-3 relative z-10">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
