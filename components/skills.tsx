@@ -79,14 +79,14 @@ const enabledSkills = skillsConfig
   .filter((skill) => skill.enabled !== false)
   .sort((a, b) => a.order - b.order);
 
-const rolodexItems: StackRolodexItem[] = enabledSkills
-  .filter((skill) => skillIconMap[skill.icon])
-  .map((skill) => ({
-    id: skill.id,
-    name: skill.name,
-    icon: skillIconMap[skill.icon],
-    color: skillColorMap[skill.id],
-  }));
+const rolodexItems: StackRolodexItem[] = [
+  { id: "c", name: "C", icon: skillIconMap.c, color: skillColorMap.c },
+  { id: "cpp", name: "C++", icon: skillIconMap.cpp, color: skillColorMap.cpp },
+  { id: "opencode", name: "OpenCode", icon: skillIconMap.opencode, color: undefined },
+  { id: "claude", name: "Claude", icon: skillIconMap.claude, color: skillColorMap.claude },
+  { id: "archlinux", name: "Arch Linux", icon: skillIconMap.archlinux, color: skillColorMap.archlinux },
+  { id: "chatgpt", name: "ChatGPT", icon: skillIconMap.chatgpt, color: skillColorMap.chatgpt },
+];
 
 export function Skills() {
   const categories = skillsSectionConfig.categories;
