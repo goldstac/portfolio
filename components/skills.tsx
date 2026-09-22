@@ -104,7 +104,7 @@ export function Skills() {
       <div className="flex justify-center py-4">
         <StackRolodex
           items={rolodexItems}
-          label="in my toolkit"
+          label="agentic engineering"
           interval={2000}
           step={54}
         />
