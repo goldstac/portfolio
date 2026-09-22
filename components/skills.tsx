@@ -9,6 +9,7 @@ import TailwindIcon from "@/public/stacks/tailwind";
 import TSIcon from "@/public/stacks/ts";
 import JSIcon from "@/public/stacks/js";
 import OpenCodeIcon from "@/public/stacks/opencode";
+import { StackRolodex, type StackRolodexItem } from "@/components/ui/stack-rolodex";
 import { motion } from "motion/react";
 import type { ComponentType } from "react";
 import { BsClaude } from "react-icons/bs";
@@ -51,9 +52,41 @@ const skillIconMap: Record<SkillIcon, ComponentType<any>> = {
   everything: ({ size }: { size?: number }) => <LetterIcon letter="*" className={`w-[${size ?? 14}px] h-[${size ?? 14}px]`} />,
 };
 
+const skillColorMap: Record<string, string | undefined> = {
+  typescript: "#3178C6",
+  javascript: "#F7DF1E",
+  python: "#3776AB",
+  rust: "#CE422B",
+  react: "#61DAFB",
+  nextjs: "#000000",
+  tailwind: "#06B6D4",
+  svelte: "#FF3E00",
+  supabase: "#3ECF8E",
+  postgresql: "#4169E1",
+  sqlite: "#003B57",
+  c: "#A8B9CC",
+  cpp: "#00599C",
+  html: "#E34F26",
+  css: "#1572B6",
+  claude: "#D97757",
+  chatgpt: "#10A37F",
+  gemini: "#4285F4",
+  archlinux: "#1793D1",
+  web3: "#F1B92C",
+};
+
 const enabledSkills = skillsConfig
   .filter((skill) => skill.enabled !== false)
   .sort((a, b) => a.order - b.order);
+
+const rolodexItems: StackRolodexItem[] = enabledSkills
+  .filter((skill) => skillIconMap[skill.icon])
+  .map((skill) => ({
+    id: skill.id,
+    name: skill.name,
+    icon: skillIconMap[skill.icon],
+    color: skillColorMap[skill.id],
+  }));
 
 export function Skills() {
   const categories = skillsSectionConfig.categories;
@@ -66,9 +99,18 @@ export function Skills() {
       transition={{ duration: 0.2, delay: 0.1 }}
       className="px-6 border-t border-dashed pt-6"
     >
-      <h2 className="section-heading mb-4">{skillsSectionConfig.title}</h2>
+      <h2 className="section-heading mb-6">{skillsSectionConfig.title}</h2>
 
-      <div className="space-y-4">
+      <div className="flex justify-center py-4">
+        <StackRolodex
+          items={rolodexItems}
+          label="in my toolkit"
+          interval={2000}
+          step={54}
+        />
+      </div>
+
+      <div className="space-y-4 mt-8">
         {categories.map((category) => {
           const categorySkills = enabledSkills.filter(
             (skill) => skill.category === category.id
