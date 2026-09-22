@@ -108,7 +108,7 @@ export const siteConfig: PortfolioConfig = {
   },
   about: {
     title: "What I do",
-    body: "I code in C, C++, and Python — CLI tools, GUI apps, full-stack systems, and web3 projects. I play around with AI a lot. I also dabble in cybersecurity. I use Arch Linux. I like making things that are useful, fast, and well put together. I share what I learn — the technical decisions, the mistakes, and the parts that only show up after shipping.",
+    body: "I code in C, C++, and Python — CLI tools, GUI apps, full-stack systems, and web3 projects. I play around with AI a lot, specifically agentic engineering. I also dabble in cybersecurity. I use Arch Linux. I like making things that are useful, fast, and well put together. I share what I learn — the technical decisions, the mistakes, and the parts that only show up after shipping.",
   },
   services: {
     title: "What I build",
