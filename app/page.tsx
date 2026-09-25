@@ -1,5 +1,5 @@
 import { About } from "@/components/about";
-import { CornerBlackHole } from "@/components/corner-blackhole";
+import { BlackHoleBackground } from "@/components/blackhole-background";
 import { Footer } from "@/components/footer";
 import { GitHubSection } from "@/components/github-section";
 import { Hero } from "@/components/hero";
@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <main
         id="main-content"
-        className="relative min-h-dvh gap-y-0 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
+        className="relative z-10 min-h-dvh gap-y-0 flex flex-col max-w-3xl mx-auto border-x border-b-2 overflow-x-clip"
       >
         <div id="hero" className="bg-background scroll-mt-20">
           <Hero />
@@ -101,7 +101,7 @@ export default function Home() {
         />
       </div>
 
-      <CornerBlackHole />
+      <BlackHoleBackground />
     </>
   );
 }
