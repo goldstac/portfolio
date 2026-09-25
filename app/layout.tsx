@@ -66,9 +66,9 @@ export const metadata: Metadata = {
     creator: siteConfig.meta.twitterCreator,
   },
   icons: {
-    icon: siteConfig.meta.icon,
-    shortcut: siteConfig.meta.icon,
-    apple: siteConfig.meta.appleIcon,
+    icon: siteConfig.meta.icon || undefined,
+    shortcut: siteConfig.meta.icon || undefined,
+    apple: siteConfig.meta.appleIcon || undefined,
   },
   robots: {
     index: true,
