@@ -1,5 +1,4 @@
 import { About } from "@/components/about";
-import { CornerBlackHole } from "@/components/corner-blackhole";
 import { Footer } from "@/components/footer";
 import { GitHubSection } from "@/components/github-section";
 import { Hero } from "@/components/hero";
@@ -100,9 +99,6 @@ export default function Home() {
           height="calc(100px + env(safe-area-inset-bottom))"
         />
       </div>
-
-      <CornerBlackHole corner="bottom-right" />
-      <CornerBlackHole corner="top-left" />
     </>
   );
 }
