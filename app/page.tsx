@@ -1,5 +1,5 @@
 import { About } from "@/components/about";
-import { BlackHoleBackground } from "@/components/blackhole-background";
+import { CornerBlackHole } from "@/components/corner-blackhole";
 import { Footer } from "@/components/footer";
 import { GitHubSection } from "@/components/github-section";
 import { Hero } from "@/components/hero";
@@ -101,7 +101,8 @@ export default function Home() {
         />
       </div>
 
-      <BlackHoleBackground />
+      <CornerBlackHole corner="bottom-right" />
+      <CornerBlackHole corner="top-left" />
     </>
   );
 }
