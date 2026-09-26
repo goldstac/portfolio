@@ -31,7 +31,8 @@ export const siteConfig: PortfolioConfig = {
     category: "technology",
     locale: "en_US",
     ogImage: {
-      url: "/opengraph-image",
+      // ?v= busts Discord/X CDN caches — bump it whenever the banner changes
+      url: "/opengraph-image?v=2",
       width: 1200,
       height: 630,
       alt: "Li Productions — building tools and systems",
