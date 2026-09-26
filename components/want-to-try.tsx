@@ -52,7 +52,7 @@ export function WantToTry() {
               <span className="text-xs text-muted-foreground font-mono transition-all duration-300 group-hover:translate-x-1 group-hover:text-foreground">→</span>
             </div>
             <p className="text-sm text-muted-foreground mt-1">
-              Beautiful, fun &amp; agentic Linux by DHH.
+              Beautiful, fun &amp; agentic.
             </p>
           </div>
         </a>
