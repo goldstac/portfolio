@@ -69,8 +69,8 @@ There is no typecheck script; run `npx tsc --noEmit` directly.
 | `components/motion-primitives/` | Motion-heavy building blocks |
 | `components/skeletons/` | Loading placeholders |
 | `config/` | The data layer — one file per domain, plus `types.ts` |
-| `content/` | Markdown docs for the showcase |
-| `lib/` | `utils.ts` (the `cn` helper), `github.ts`, `discord-status.ts`, `highlight.ts`, `react-query.ts`, `fonts/` |
+| `content/` | Markdown docs for the showcase, plus `content/blogs/` — blog posts |
+| `lib/` | `utils.ts` (the `cn` helper), `github.ts`, `discord-status.ts`, `blogs.ts` (blog loader), `blog-date.ts`, `highlight.ts`, `react-query.ts`, `fonts/` |
 | `public/` | Static assets; `public/r/` holds generated registry JSON |
 | `scripts/` | `build-registry.mjs` |
 | `plans/` | Private planning docs, gitignored |
@@ -100,6 +100,13 @@ component.
 Pattern to copy: every domain exports a section config object (heading text) and
 a typed item array. Every item carries `id`, `order`, and an optional `enabled`
 flag.
+
+Exception: blog posts are plain markdown in `content/blogs/*.md` with YAML
+frontmatter (`title`, `date`, `description`, `tags`, `draft`), loaded through
+`lib/blogs.ts`. The filename is the slug (`my-post.md` → `/blog/my-post`).
+`draft: true` keeps a post off the home section, the blog index, and the
+sitemap, but the page still builds so the URL works as a preview. Frontmatter
+never lives in `config/`.
 
 ## 7. Schema
 
@@ -269,12 +276,13 @@ Deliberately **excluded** — leave these as authored:
 
 ## 13. Markdown rendering
 
-Two surfaces render Markdown and they must stay in sync.
+Three surfaces render Markdown and they must stay in sync.
 
 | Surface | Renderer | File |
 | --- | --- | --- |
 | Component docs at `/components/[id]` | `MarkdownAsync` from `next-mdx-remote`, server-rendered | `app/components/[id]/page.tsx` |
 | Project case studies | `react-markdown`, client-rendered | `app/project/[id]/project-content.tsx` |
+| Blog posts at `/blog/[slug]` | `react-markdown`, server-rendered | `app/blog/[slug]/page.tsx` |
 
 - Both pass the shared override map from `components/markdown-components.tsx`.
   Never inline a second set of overrides.

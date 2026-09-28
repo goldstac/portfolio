@@ -1,4 +1,5 @@
 import { About } from "@/components/about";
+import { Blogs } from "@/components/blogs";
 import { Footer } from "@/components/footer";
 import { GitHubSection } from "@/components/github-section";
 import { Hero } from "@/components/hero";
@@ -13,11 +14,15 @@ import { WhoAmI } from "@/components/whoami";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { projectsConfig, projectsSectionConfig } from "@/config/projects";
 import { siteConfig } from "@/config/site";
+import { getBlogPosts, toBlogMeta } from "@/lib/blogs";
 import { Suspense } from "react";
 
-export default function Home() {
+export default async function Home() {
   const showGithub =
     siteConfig.sectionFlags.github && Boolean(process.env.GITHUB_TOKEN);
+
+  const blogPosts = (await getBlogPosts()).slice(0, 3).map(toBlogMeta);
+  const showBlogs = blogPosts.length > 0;
 
   return (
     <>
@@ -54,6 +59,12 @@ export default function Home() {
           />
         </div>
 
+        {showBlogs && (
+          <div id="blog" className="bg-background scroll-mt-20">
+            <Blogs posts={blogPosts} />
+          </div>
+        )}
+
         <div id="want-to-try" className="bg-background scroll-mt-20">
           <WantToTry />
         </div>
@@ -86,6 +97,7 @@ export default function Home() {
           { id: "whoami", label: "who am i" },
           { id: "skills", label: "stack" },
           { id: "work", label: "work" },
+          ...(showBlogs ? [{ id: "blog", label: "blog" }] : []),
           { id: "want-to-try", label: "try" },
           ...(showGithub ? [{ id: "github", label: "github" }] : []),
           { id: "timeline", label: "timeline" },

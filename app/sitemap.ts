@@ -1,8 +1,9 @@
 import { projectsConfig } from "@/config/projects";
 import { siteConfig } from "@/config/site";
+import { blogDate, getBlogPosts } from "@/lib/blogs";
 import { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseEntries: MetadataRoute.Sitemap = [
     ...siteConfig.meta.sitemap.map((item) => ({
       ...item,
@@ -20,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    {
+      url: `${siteConfig.meta.url}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
   ];
 
   const projectEntries: MetadataRoute.Sitemap = projectsConfig
@@ -31,5 +38,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  return [...baseEntries, ...projectEntries];
+  const blogEntries: MetadataRoute.Sitemap = (await getBlogPosts()).map(
+    (post) => ({
+      url: `${siteConfig.meta.url}/blog/${post.slug}`,
+      lastModified: blogDate(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }),
+  );
+
+  return [...baseEntries, ...projectEntries, ...blogEntries];
 }
