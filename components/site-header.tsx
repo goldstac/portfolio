@@ -31,6 +31,12 @@ export function SiteHeader() {
         >
           who am i
         </Link>
+        <Link
+          href="/blog"
+          className="flex h-8 items-center rounded-md border border-border/60 bg-background/80 backdrop-blur-md shadow-sm px-3 text-xs font-mono text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+        >
+          blogs
+        </Link>
       </nav>
 
       <HeaderActions />
