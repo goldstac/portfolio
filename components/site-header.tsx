@@ -1,5 +1,13 @@
 import { HeaderActions } from "@/components/header-actions";
+import { MobileNav } from "@/components/mobile-nav";
 import Link from "next/link";
+
+const navLinks = [
+  { href: "/", label: "home" },
+  { href: "/work", label: "work" },
+  { href: "/whoami", label: "who am i" },
+  { href: "/blog", label: "blogs" },
+];
 
 /**
  * Sticky floating header shared by every route.
@@ -8,36 +16,30 @@ import Link from "next/link";
  * GitHub star pill + theme toggle — appear on `/`, `/project/[id]`, and
  * `/components/[id]`. The `max-w-3xl mx-auto` keeps it aligned with the
  * centered main column.
+ *
+ * On mobile the inline links collapse into a hamburger dropdown.
  */
 export function SiteHeader() {
   return (
     <header className="sticky top-3 sm:top-4 z-40 mx-auto -mb-8 flex max-w-3xl items-center justify-between px-6 pointer-events-none">
-      <nav aria-label="Main navigation" className="pointer-events-auto flex items-center gap-1.5">
-        <Link
-          href="/"
-          className="flex h-8 items-center rounded-md border border-border/60 bg-background/80 backdrop-blur-md shadow-sm px-3 text-xs font-mono text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+      <div className="pointer-events-auto flex items-center gap-1.5">
+        <MobileNav links={navLinks} />
+
+        <nav
+          aria-label="Main navigation"
+          className="hidden sm:flex items-center gap-1.5"
         >
-          home
-        </Link>
-        <Link
-          href="/work"
-          className="flex h-8 items-center rounded-md border border-border/60 bg-background/80 backdrop-blur-md shadow-sm px-3 text-xs font-mono text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-        >
-          work
-        </Link>
-        <Link
-          href="/whoami"
-          className="flex h-8 items-center rounded-md border border-border/60 bg-background/80 backdrop-blur-md shadow-sm px-3 text-xs font-mono text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-        >
-          who am i
-        </Link>
-        <Link
-          href="/blog"
-          className="flex h-8 items-center rounded-md border border-border/60 bg-background/80 backdrop-blur-md shadow-sm px-3 text-xs font-mono text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-        >
-          blogs
-        </Link>
-      </nav>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="flex h-8 items-center rounded-md border border-border/60 bg-background/80 backdrop-blur-md shadow-sm px-3 text-xs font-mono text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
 
       <HeaderActions />
     </header>
