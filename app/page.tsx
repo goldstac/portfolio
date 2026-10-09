@@ -9,6 +9,7 @@ import { GitSkeleton } from "@/components/skeletons/github-skeleton";
 import { Skills } from "@/components/skills";
 import Social from "@/components/social";
 import { Timeline } from "@/components/timeline";
+import { Tools } from "@/components/tools";
 import { WantToTry } from "@/components/want-to-try";
 import { WhoAmI } from "@/components/whoami";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
@@ -51,6 +52,10 @@ export default async function Home() {
             </Suspense>
           </div>
         )}
+
+        <div id="tools" className="bg-background scroll-mt-20">
+          <Tools />
+        </div>
 
         <div id="work" className="bg-background scroll-mt-20">
           <ProjectExplorer
@@ -96,6 +101,7 @@ export default async function Home() {
           { id: "about", label: "about" },
           { id: "whoami", label: "who am i" },
           { id: "skills", label: "stack" },
+          { id: "tools", label: "tools" },
           { id: "work", label: "work" },
           ...(showBlogs ? [{ id: "blog", label: "blog" }] : []),
           { id: "want-to-try", label: "try" },
