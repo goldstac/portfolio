@@ -1,6 +1,7 @@
 "use client";
 
 import { Footer } from "@/components/footer";
+import { PhotoCard } from "@/components/photo-card";
 import { WhoAmIName } from "@/components/whoami-name";
 import { siteConfig } from "@/config/site";
 import { motion } from "motion/react";
@@ -47,6 +48,30 @@ export default function WhoAmIPage() {
             I write C, C++, and Python by hand, play around with AI a lot,
             and dabble in cybersecurity. Arch Linux user.
           </p>
+        </motion.div>
+
+        <motion.div
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: 0.15 }}
+          className="flex flex-wrap items-start gap-4 sm:gap-6"
+        >
+          <PhotoCard
+            src="/images/cato.jpg"
+            alt="Cato the cat typing on a tiny computer"
+            caption="the developer"
+            badge="cato"
+            rotate={-2}
+            priority
+          />
+          <PhotoCard
+            src="/images/full_of_knowledge.jpg"
+            alt="Cato the cat at a computer with an arrow reading full of knowledge"
+            caption="full of knowledge"
+            badge="100%"
+            rotate={3}
+            className="sm:mt-6"
+            priority
+          />
         </motion.div>
 
         <motion.div
