@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import { PhotoCard } from "@/components/photo-card";
 import { siteConfig } from "@/config/site";
 
 const entryTransition = {
@@ -49,6 +50,24 @@ export function WhoAmI() {
           I write C, C++, and Python by hand, play around with AI a lot,
           and dabble in cybersecurity. Arch Linux user.
         </p>
+
+        <div className="flex flex-wrap items-start gap-4 pt-2 sm:gap-6">
+          <PhotoCard
+            src="/images/cato.jpg"
+            alt="Cato the cat typing on a tiny computer"
+            caption="me"
+            badge="3am"
+            rotate={-2.5}
+          />
+          <PhotoCard
+            src="/images/full_of_knowledge.jpg"
+            alt="Cato the cat at a computer with an arrow reading full of knowledge"
+            caption="after one docs page"
+            badge="100% legit"
+            rotate={2.5}
+            className="sm:mt-8"
+          />
+        </div>
 
         <div className="border border-dashed border-border/40 rounded-lg p-4 hover:border-border/60 transition-colors">
           <h3 className="text-[10px] font-mono text-muted-foreground/50 tracking-widest mb-3">
