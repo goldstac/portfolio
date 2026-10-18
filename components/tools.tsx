@@ -28,7 +28,7 @@ const tools: Tool[] = [
   {
     id: "t3-code",
     name: "T3 Code",
-    description: "The coding agent I use every day.",
+    description: "The open-source control plane I run my coding agents from.",
     href: "https://github.com/pingdotgg/t3code",
     icon: "/stacks/t3code.png",
     iconAlt: "T3 Code",
