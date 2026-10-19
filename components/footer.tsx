@@ -136,11 +136,19 @@ export function Footer() {
   return (
     <footer className="overflow-hidden border-t border-dashed bg-muted/10">
       <div className="px-6 pb-6 pt-10 md:px-8">
-        <p className="max-w-md font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
-          it's not a bug, it's a feature I haven't documented yet.
+        <p className="max-w-xl font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
+          I have never regretted my silence, as for my speech I’ve regretted it
+          many times.
         </p>
         <p className="mt-3 font-mono text-[10px] tracking-[0.25em] text-muted-foreground/50 uppercase">
-          — Every Developer Ever
+          — Umar ibn al-Khattab
+        </p>
+        <p
+          lang="ar"
+          dir="rtl"
+          className="mt-1.5 font-arabic text-lg leading-none text-muted-foreground/70 md:text-xl"
+        >
+          عمر بن الخطاب
         </p>
         <div className="mt-8 flex items-center gap-3">
           <div className="h-px flex-1 bg-gradient-to-r from-border/60 to-transparent" />
