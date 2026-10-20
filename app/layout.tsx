@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistPixelGrid } from "geist/font/pixel";
 import { Metadata, Viewport } from "next";
-import { Amiri, DM_Sans, Geist_Mono } from "next/font/google";
+import { DM_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -30,14 +30,6 @@ const DmSans = DM_Sans({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap",
-});
-
-/* Classical Arabic naskh typeface for Arabic text (e.g. quote attributions). */
-const amiri = Amiri({
-  variable: "--font-arabic",
-  subsets: ["arabic", "latin"],
-  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -149,7 +141,6 @@ export default function RootLayout({
         GeistPixelGrid.variable,
         "bg-background font-sans",
         DmSans.variable,
-        amiri.variable,
       )}
       suppressHydrationWarning
     >
