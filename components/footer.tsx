@@ -136,12 +136,23 @@ export function Footer() {
   return (
     <footer className="overflow-hidden border-t border-dashed bg-muted/10">
       <div className="px-6 pb-6 pt-10 md:px-8">
-        <p className="max-w-md font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
-          it's not a bug, it's a feature I haven't documented yet.
+        <p className="max-w-xl font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
+          I have never regretted my silence, as for my speech I’ve regretted it
+          many times.
         </p>
-        <p className="mt-3 font-mono text-[10px] tracking-[0.25em] text-muted-foreground/50 uppercase">
-          — Every Developer Ever
-        </p>
+        <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <p className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground/50 uppercase">
+            — Umar ibn al-Khattab
+          </p>
+          <p
+            lang="ar"
+            dir="rtl"
+            className="text-xl font-normal leading-[2] text-muted-foreground/65 md:text-2xl"
+            title="ʿUmar ibn al-Khaṭṭāb"
+          >
+            عُمَرُ بْنُ الْخَطَّابِ
+          </p>
+        </div>
         <div className="mt-8 flex items-center gap-3">
           <div className="h-px flex-1 bg-gradient-to-r from-border/60 to-transparent" />
           <span className="font-mono text-[10px] text-muted-foreground/40 tracking-widest">
