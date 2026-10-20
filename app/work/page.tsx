@@ -9,7 +9,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Projects by Li Productions — CLI tools, QR code generators, chatbots, and simulations.",
+    "Projects by Li Productions — a Quran app, CLI tools, QR code generators, chatbots, and simulations.",
   alternates: {
     canonical: "https://liproductions.vercel.app/work",
   },
