@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 import { GeistPixelGrid } from "geist/font/pixel";
 import { Metadata, Viewport } from "next";
 import { DM_Sans, Geist_Mono } from "next/font/google";
@@ -165,6 +166,11 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <Script
+          src="https://talvess.vercel.app/script.js"
+          data-website-id="ad3ab8f3-5f3f-43cd-8c70-3b504760f3d6"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

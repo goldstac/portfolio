@@ -50,6 +50,29 @@ export const projectsConfig: Project[] = [
     enabled: true,
   },
   {
+    id: "quran",
+    title: "Quran",
+    description:
+      "All-in-one open source Islamic app — 114 surahs, 170+ reciters, nasheeds, and your own library. Everything stays on your device.",
+    content:
+      "## What it does\nAn all-in-one, open source Islamic app. Browse all 114 surahs with 170+ reciters, per-ayah Arabic with English/Tamil translation, search YouTube for nasheeds, and keep your own library, likes, and playlists. Everything stays on your device — no cloud, no accounts.\n\n## Features\n- All 114 surahs with 170+ reciters, Arabic + English names, play/shuffle\n- Nasheed search via yt-dlp with debounced live results\n- Smooth playback through a local Range-aware proxy — seeking actually works\n- Your Library — auto-saves what you play, likes, playlists with create/rename/delete\n- Shuffle, loop-one, auto-advancing queue, recently played\n- Keyboard shortcuts, toasts, Media Session (lock-screen / OS media keys)\n- In-app updater that lists every release and installs the one you pick\n- Optional Discord presence for what you're listening to\n- Self-hostable — run it on a home server or NAS and open it from any browser\n\n## Stack\nFlask + Python backend, TypeScript frontend compiled to a single static bundle, and a Tauri desktop wrapper. Cross-platform: Linux, macOS, and Windows — anywhere Python runs plus a browser.\n\n## Run\n\n```bash\ngit clone https://github.com/goldstac/quran.git\ncd quran\n./run-web.sh\n```\n\nThen open http://localhost:5000. Prebuilt builds are on the [Releases page](https://github.com/goldstac/quran/releases).",
+    image: "/projects/quran.png",
+    imageAlt: "Quran app logo — a dark green and gold arch motif",
+    href: "/project/quran",
+    liveUrl: "",
+    githubUrl: "https://github.com/goldstac/quran",
+    tags: ["Python", "Flask", "TypeScript", "Tauri"],
+    metrics: [
+      { icon: "chart", label: "114 surahs" },
+      { icon: "users", label: "170+ reciters" },
+    ],
+    year: 2026,
+    status: "shipped",
+    category: "App",
+    order: 1,
+    enabled: true,
+  },
+  {
     id: "syntheraqr-cli",
     title: "SyntheraQR CLI",
     description:
@@ -67,7 +90,7 @@ export const projectsConfig: Project[] = [
     year: 2026,
     status: "shipped",
     category: "CLI",
-    order: 1,
+    order: 2,
     enabled: true,
   },
   {
@@ -89,7 +112,7 @@ export const projectsConfig: Project[] = [
     year: 2026,
     status: "shipped",
     category: "CLI",
-    order: 1,
+    order: 3,
     enabled: true,
   },
   {
@@ -107,7 +130,7 @@ export const projectsConfig: Project[] = [
     year: 2026,
     status: "building",
     category: "Project",
-    order: 2,
+    order: 4,
     enabled: true,
   },
 ];
