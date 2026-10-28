@@ -123,7 +123,6 @@ const jsonLd = {
       sameAs: [
         "https://github.com/goldstac",
         "https://x.com/LiProductions_",
-        "https://instagram.com/liproductions.dev",
       ],
       image: `${siteConfig.meta.url}/profile.avif`,
     },

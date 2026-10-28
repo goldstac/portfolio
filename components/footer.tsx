@@ -1,5 +1,7 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
+
 /* ------------------------------------------------------------------ */
 /* Garden palette — olive stems with colored blooms that read well on  */
 /* the theme-aware secondary surface in both light and dark mode.      */
@@ -133,36 +135,59 @@ const PLANTS: Plant[] = [
 ];
 
 export function Footer() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <footer className="overflow-hidden border-t border-dashed bg-muted/10">
-      <div className="px-6 pb-6 pt-10 md:px-8">
-        <p className="max-w-xl font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
-          I have never regretted my silence, as for my speech I’ve regretted it
-          many times.
-        </p>
-        <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <p className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground/50 uppercase">
-            — Umar ibn al-Khattab
-          </p>
-          <p
-            lang="ar"
-            dir="rtl"
-            className="text-xl font-normal leading-[2] text-muted-foreground/65 md:text-2xl"
-            title="ʿUmar ibn al-Khaṭṭāb"
+      <div className="px-6 pb-8 pt-12 md:px-8 md:pb-10 md:pt-16">
+        <motion.figure
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto flex max-w-2xl flex-col items-center text-center"
+        >
+          <span
+            aria-hidden="true"
+            className="font-serif text-[4rem] leading-[0.7] text-muted-foreground/20 select-none md:text-[5rem]"
           >
-            عُمَرُ بْنُ الْخَطَّابِ
-          </p>
-        </div>
-        <div className="mt-8 flex items-center gap-3">
+            &ldquo;
+          </span>
+          <blockquote className="mt-4 max-w-xl font-serif text-2xl text-balance italic leading-[1.4] tracking-tight text-foreground md:text-[2.125rem]">
+            I have never regretted my silence, as for my speech I’ve regretted it
+            many times.
+          </blockquote>
+          <figcaption className="mt-7 flex flex-col items-center gap-2.5">
+            <span className="flex items-center gap-3 md:gap-4">
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-gradient-to-r from-transparent to-border/80 md:w-14"
+              />
+              <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/60 uppercase">
+                Umar ibn al-Khattab
+              </span>
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-gradient-to-l from-transparent to-border/80 md:w-14"
+              />
+            </span>
+            <span
+              lang="ar"
+              dir="rtl"
+              title="ʿUmar ibn al-Khaṭṭāb"
+              className="text-lg leading-[1.9] font-normal text-muted-foreground/55 md:text-xl"
+            >
+              عُمَرُ بْنُ الْخَطَّابِ
+            </span>
+          </figcaption>
+        </motion.figure>
+        <div className="mt-10 flex items-center gap-3 md:mt-12">
           <div className="h-px flex-1 bg-gradient-to-r from-border/60 to-transparent" />
-          <span className="font-mono text-[10px] text-muted-foreground/40 tracking-widest">
+          <span className="font-mono text-[10px] tracking-widest text-muted-foreground/40">
             &lt;3
           </span>
           <div className="h-px flex-1 bg-gradient-to-l from-border/60 to-transparent" />
         </div>
-        <p className="mt-4 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/50 text-center">
-          Made with coffee and late nights.
-        </p>
       </div>
 
       <div
