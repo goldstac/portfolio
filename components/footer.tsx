@@ -160,9 +160,6 @@ export function Footer() {
           </span>
           <div className="h-px flex-1 bg-gradient-to-l from-border/60 to-transparent" />
         </div>
-        <p className="mt-4 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/50 text-center">
-          Made with coffee and late nights.
-        </p>
       </div>
 
       <div
