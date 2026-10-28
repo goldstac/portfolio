@@ -168,7 +168,7 @@ export default function RootLayout({
         <SpeedInsights />
         <Script
           src="https://talvess.vercel.app/script.js"
-          data-website-id="ad3ab8f3-5f3f-43cd-8c70-3b504760f3d6"
+          data-website-id="d002ed18-6c36-4080-90ca-eca07c6f04e6"
           strategy="afterInteractive"
         />
       </body>
