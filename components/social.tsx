@@ -4,7 +4,7 @@ import { useMemo, useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Copy, Instagram } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import { socialSectionConfig, socialsConfig } from "@/config/socials";
 import type { SocialIcon, SocialLink } from "@/config/types";
 import X from "@/public/x-icon";
@@ -29,8 +29,6 @@ function SocialIconNode({
       );
     case "x":
       return <X size={String(size)} color="currentColor" />;
-    case "instagram":
-      return <Instagram size={size} />;
     default:
       return null;
   }

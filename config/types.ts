@@ -156,7 +156,6 @@ export interface SocialLink {
 export type SocialIcon =
   | "github"
   | "x"
-  | "instagram"
   | "peerlist"
   | "discord"
   | "gmail"

@@ -130,14 +130,6 @@ export default function WhoAmIPage() {
           >
             <span className="text-muted-foreground/40">02.</span> x
           </a>
-          <a
-            href="https://instagram.com/liproductions.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-foreground transition-colors"
-          >
-            <span className="text-muted-foreground/40">03.</span> instagram
-          </a>
         </motion.div>
       </div>
 

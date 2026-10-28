@@ -141,9 +141,7 @@ export const siteConfig: PortfolioConfig = {
     description:
       "I'm always open to conversations about code, AI tools, cybersecurity, and building things that work.",
     pricing: [],
-    channels: socialsConfig.filter((item) =>
-      ["x", "instagram"].includes(item.id),
-    ),
+    channels: socialsConfig.filter((item) => ["x"].includes(item.id)),
   },
   bookmarks: {
     title: "Learning",
