@@ -32,14 +32,14 @@ export const siteConfig: PortfolioConfig = {
     locale: "en_US",
     ogImage: {
       // ?v= busts Discord/X CDN caches — bump it whenever the banner changes
-      url: "/images/banner.png?v=2",
+      url: "/images/banner.webp?v=3",
       width: 1672,
       height: 941,
       alt: "Li Productions — building tools and systems",
     },
     twitterCreator: "@LiProductions_",
-    icon: "",
-    appleIcon: "",
+    icon: "/favicon.ico",
+    appleIcon: "/apple-icon.png",
     manifest: {
       name: "Li Productions — Building Tools",
       short_name: "Li Productions",
@@ -47,8 +47,21 @@ export const siteConfig: PortfolioConfig = {
       start_url: "/",
       display: "standalone",
       background_color: "#fafafa",
-      theme_color: "#18181b",
-      icons: [],
+      theme_color: "#141414",
+      icons: [
+        {
+          src: "/icon-192.png",
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "any",
+        },
+        {
+          src: "/icon-512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "any",
+        },
+      ],
     },
     robots: {
       rules: {
