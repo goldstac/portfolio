@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import Image from "next/image";
 
 /* ------------------------------------------------------------------ */
 /* Garden palette — olive stems with colored blooms that read well on  */
@@ -215,6 +216,33 @@ export function Footer() {
             ))}
           </pre>
         ))}
+      </div>
+
+      <div className="flex flex-col items-center gap-3 border-t border-dashed px-6 pt-8 pb-[calc(100px+env(safe-area-inset-bottom))] text-center">
+        <p className="flex w-full max-w-52 items-center gap-3 font-mono text-[10px] tracking-[0.2em] text-muted-foreground/55 uppercase">
+          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-r from-transparent to-border/70" />
+          <span>Analytics sponsor</span>
+          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-l from-transparent to-border/70" />
+        </p>
+        <a
+          href="https://talvess.vercel.app"
+          target="_blank"
+          rel="noreferrer"
+          className="group/sponsor inline-flex items-center gap-2.5 rounded-xl px-3 py-1.5 transition-colors hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          aria-label="Talvess, analytics sponsor (opens in a new tab)"
+        >
+          <Image
+            src="/images/talvess.png"
+            alt=""
+            width={40}
+            height={40}
+            unoptimized
+            className="size-10 rounded-lg transition-transform duration-300 group-hover/sponsor:scale-105"
+          />
+          <span className="text-sm font-medium tracking-tight transition-colors group-hover/sponsor:text-foreground/75">
+            Talvess
+          </span>
+        </a>
       </div>
     </footer>
   );
