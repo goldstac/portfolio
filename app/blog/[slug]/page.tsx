@@ -32,6 +32,9 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     keywords: [...siteConfig.meta.keywords, ...post.tags],
+    ...(post.draft
+      ? { robots: { index: false, googleBot: { index: false } } }
+      : {}),
     alternates: {
       canonical: url,
     },

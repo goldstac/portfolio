@@ -28,10 +28,17 @@ export function HeaderActions() {
   };
 
   const toggleTheme = useCallback(() => {
-    playThemeAudio();
-    setTimeout(() => {
+    const changeTheme = () => {
       setTheme(resolvedTheme === "dark" ? "light" : "dark");
-    }, 200);
+    };
+
+    if (siteConfig.banner.switchAudioSrc && themeAudioRef.current) {
+      playThemeAudio();
+      setTimeout(changeTheme, 200);
+      return;
+    }
+
+    changeTheme();
   }, [resolvedTheme, setTheme]);
 
   useEffect(() => {

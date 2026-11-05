@@ -141,23 +141,23 @@ function TooltipBody({ data }: { data: LanyardData }) {
           </div>
         </div>
         {spotify.track_id && (
-          <Link
-            href={`https://open.spotify.com/track/${spotify.track_id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="play on spotify"
-            className="w-full mt-2"
-            prefetch="auto"
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="mt-2 w-full rounded-sm"
           >
-            <Button
-              variant="secondary"
-              size={"lg"}
-              className="w-full rounded-sm"
+            <Link
+              href={`https://open.spotify.com/track/${spotify.track_id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="play on spotify"
+              prefetch="auto"
             >
               <FaSpotify className="mr-2 text-green-600" />
               Listen on Spotify
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         )}
       </div>
     );
@@ -174,17 +174,20 @@ function TooltipBody({ data }: { data: LanyardData }) {
 
     return (
       <div className="flex items-center gap-4 max-w-65">
-        <Button variant="ghost" size={"icon-lg"} className="rounded-sm p-0">
+        <div
+          aria-hidden="true"
+          className="flex size-10 shrink-0 items-center justify-center"
+        >
           <SafeImage
             src={activityImgUrl ?? ""}
-            alt={activity.name}
+            alt=""
             width={50}
             height={50}
             className="rounded-md shrink-0 "
             unoptimized
             fallback={FallbackIcon}
           />
-        </Button>
+        </div>
         <div className="min-w-0">
           <p className="font-medium truncate">{activity.name}</p>
           {activity.details && (

@@ -126,6 +126,7 @@ function WorkRow({
         onPreviewStart(project, event.currentTarget.getBoundingClientRect())
       }
       onMouseLeave={onPreviewEnd}
+      onBlur={onPreviewEnd}
     >
       <div className="px-3 py-3 relative z-10">
         <div className="flex items-start justify-between gap-2">
@@ -176,6 +177,16 @@ function WorkRow({
           >
             {project.href ? "read more →" : project.liveUrl ? "view live →" : project.githubUrl ? "view on github →" : "read more →"}
           </Link>
+          {project.liveUrl && !isExternal && (
+            <Link
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-muted-foreground hover:text-foreground transition-colors font-mono"
+            >
+              view live →
+            </Link>
+          )}
           {project.githubUrl && (project.liveUrl || project.href) && (
             <Link
               href={project.githubUrl}
@@ -324,7 +335,7 @@ export function ProjectExplorer({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.2 }}
-              className="no-js-visible section-heading mb-3"
+          className="no-js-visible section-heading mb-3"
         >
           {title}
         </motion.h2>
