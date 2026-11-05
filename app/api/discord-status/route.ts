@@ -45,10 +45,33 @@ export async function GET() {
       );
     }
 
-    // Serve from the shared/CDN cache and allow serving stale content while
-    // revalidating in the background. This collapses concurrent requests onto
-    // a single upstream fetch instead of hammering Lanyard on every miss.
-    return NextResponse.json(data.data, {
+    const publicStatus: LanyardData = {
+      discord_status: data.data.discord_status,
+      activities: data.data.activities.map((activity) => ({
+        id: activity.id,
+        name: activity.name,
+        type: activity.type,
+        state: activity.state,
+        details: activity.details,
+        application_id: activity.application_id,
+        assets: activity.assets?.large_image
+          ? { large_image: activity.assets.large_image }
+          : undefined,
+      })),
+      spotify: data.data.spotify
+        ? {
+            track_id: data.data.spotify.track_id,
+            song: data.data.spotify.song,
+            artist: data.data.spotify.artist,
+            album: data.data.spotify.album,
+            album_art_url: data.data.spotify.album_art_url,
+          }
+        : null,
+      listening_to_spotify: data.data.listening_to_spotify,
+    };
+
+    // Serve only fields the status UI consumes, using the shared/CDN cache.
+    return NextResponse.json(publicStatus, {
       headers: {
         "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
       },

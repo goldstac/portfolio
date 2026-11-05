@@ -26,6 +26,7 @@ export function WantToTry() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={entryTransition}
+        className="no-js-visible"
       >
         <a
           href="https://omarchy.org"

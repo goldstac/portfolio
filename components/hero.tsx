@@ -32,8 +32,10 @@ export function Hero() {
     if (!isDeleting && displayText === current) {
       timeout = setTimeout(() => setIsDeleting(true), 2000);
     } else if (isDeleting && displayText === "") {
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }, 0);
     } else {
       timeout = setTimeout(
         () => {
@@ -51,12 +53,12 @@ export function Hero() {
 
   return (
     <motion.section
-      className="no-js-visible relative z-20 px-6 pt-24 pb-10"
+      className="no-js-visible relative z-20 px-6 pt-20 pb-10 sm:pt-24"
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={entryTransition}
     >
-      <div className="space-y-8">
+      <div className="space-y-6 sm:space-y-8">
         <div>
           <motion.div
             className="relative"
@@ -65,7 +67,7 @@ export function Hero() {
             transition={{ ...entryTransition, delay: 0.1 }}
           >
             <div className="absolute -inset-x-32 -inset-y-20 bg-gradient-to-br from-muted/40 via-transparent to-muted/20 blur-3xl pointer-events-none" />
-            <h1 className="no-js-visible text-7xl sm:text-8xl font-bold tracking-[-0.05em] relative leading-[0.9]">
+            <h1 className="no-js-visible text-[clamp(3rem,15vw,4.5rem)] sm:text-8xl font-bold tracking-[-0.05em] relative leading-[0.9]">
               {heroConfig.greeting}
             </h1>
           </motion.div>
@@ -96,7 +98,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="no-js-visible h-8 flex items-center"
+          className="no-js-visible min-h-8 flex items-center"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...entryTransition, delay: 0.22 }}

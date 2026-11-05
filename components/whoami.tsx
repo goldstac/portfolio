@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { PhotoCard } from "@/components/photo-card";
-import { siteConfig } from "@/config/site";
 
 const entryTransition = {
   duration: 0.2,
@@ -28,9 +27,9 @@ export function WhoAmI() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={entryTransition}
-        className="space-y-4"
+        className="no-js-visible space-y-4"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <span className="text-lg font-bold">Li Productions</span>
           <span className="text-xs text-muted-foreground font-mono border border-dashed border-border/40 rounded px-2 py-0.5 transition-all duration-200 hover:border-foreground/20 hover:text-foreground hover:bg-muted/30">
             Luhaidan Ibraheem

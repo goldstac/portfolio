@@ -27,7 +27,7 @@ export function Timeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.2, delay: index * 0.06 }}
-              className="relative flex items-start gap-3 group"
+              className="no-js-visible relative flex items-start gap-3 group"
             >
               <div className="relative z-10 mt-1 h-2 w-2 shrink-0 rounded-full bg-border group-hover:bg-foreground/40 transition-all duration-300 group-hover:scale-125" />
               <span className="text-sm text-muted-foreground">

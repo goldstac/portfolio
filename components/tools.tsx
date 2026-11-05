@@ -69,6 +69,7 @@ export function Tools() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ ...entryTransition, delay: index * 0.05 }}
+            className="no-js-visible"
           >
             <a
               href={tool.href}
@@ -114,7 +115,7 @@ export function Tools() {
                     →
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1 truncate">
+                <p className="mt-1 line-clamp-2 text-sm text-muted-foreground sm:line-clamp-none sm:truncate">
                   {tool.description}
                 </p>
               </div>

@@ -16,22 +16,42 @@ import { BsClaude } from "react-icons/bs";
 import { SiGoogle, SiOpenai, SiSupabase, SiSqlite, SiPostgresql, SiRust, SiPython, SiSvelte, SiCplusplus, SiHtml5, SiCss, SiC, SiArchlinux, SiWeb3Dotjs } from "react-icons/si";
 import { FaWindows } from "react-icons/fa";
 
-function LetterIcon({ letter, className }: { letter: string; className?: string }) {
+function LetterIcon({
+  letter,
+  size = 14,
+  className,
+}: {
+  letter: string;
+  size?: number | string;
+  className?: string;
+}) {
   return (
-    <span className={`inline-flex items-center justify-center font-mono font-bold text-[10px] ${className ?? ""}`}>
+    <span
+      style={{ width: size, height: size }}
+      className={`inline-flex items-center justify-center font-mono font-bold text-[10px] ${className ?? ""}`}
+    >
       {letter}
     </span>
   );
 }
 
-const skillIconMap: Record<SkillIcon, ComponentType<any>> = {
-  nextjs: NextjsIcon,
-  react: ReactIcon,
-  typescript: TSIcon,
-  javascript: JSIcon,
-  tailwind: TailwindIcon,
-  shadcn: ShadcnIcon,
-  prisma: ({ size }) => <LetterIcon letter="P" />,
+type SkillIconProps = { size?: number | string; className?: string };
+type SkillIconComponent = ComponentType<SkillIconProps>;
+
+const iconSize = (size?: number | string) => String(size ?? 24);
+
+const skillIconMap: Record<SkillIcon, SkillIconComponent> = {
+  nextjs: ({ size, className }) => (
+    <NextjsIcon size={iconSize(size)} className={className} />
+  ),
+  react: ({ size }) => <ReactIcon size={iconSize(size)} />,
+  typescript: ({ size }) => <TSIcon size={iconSize(size)} />,
+  javascript: ({ size }) => <JSIcon size={iconSize(size)} />,
+  tailwind: ({ size }) => <TailwindIcon size={iconSize(size)} />,
+  shadcn: ({ size }) => <ShadcnIcon size={iconSize(size)} />,
+  prisma: ({ size, className }) => (
+    <LetterIcon letter="P" size={size} className={className} />
+  ),
   claude: BsClaude,
   c: SiC,
   cpp: SiCplusplus,
@@ -49,7 +69,9 @@ const skillIconMap: Record<SkillIcon, ComponentType<any>> = {
   archlinux: SiArchlinux,
   windows: FaWindows,
   web3: SiWeb3Dotjs,
-  everything: ({ size }: { size?: number }) => <LetterIcon letter="*" className={`w-[${size ?? 14}px] h-[${size ?? 14}px]`} />,
+  everything: ({ size, className }) => (
+    <LetterIcon letter="*" size={size} className={className} />
+  ),
 };
 
 const skillColorMap: Record<string, string | undefined> = {
@@ -97,7 +119,7 @@ export function Skills() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.2, delay: 0.1 }}
-      className="px-6 border-t border-dashed pt-6"
+      className="no-js-visible px-6 border-t border-dashed pt-6"
     >
       <h2 className="section-heading mb-6">{skillsSectionConfig.title}</h2>
 

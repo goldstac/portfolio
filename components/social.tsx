@@ -25,7 +25,7 @@ function SocialIconNode({
   switch (icon) {
     case "github":
       return (
-        <Image src="/github.svg" alt="GitHub" width={size} height={size} />
+        <Image src="/github.svg" alt="GitHub" width={size} height={size} className="dark:invert" />
       );
     case "x":
       return <X size={String(size)} color="currentColor" />;

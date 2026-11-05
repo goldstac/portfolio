@@ -43,7 +43,12 @@ export async function generateMetadata({
       siteName: siteConfig.meta.shortTitle,
       publishedTime: blogDate(post.date).toISOString(),
       tags: post.tags,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+      images: [{
+        url: ogImage,
+        width: siteConfig.meta.ogImage.width,
+        height: siteConfig.meta.ogImage.height,
+        alt: post.title,
+      }],
     },
     twitter: {
       card: "summary_large_image",

@@ -102,15 +102,14 @@ function SafeImage({
   fallback: typeof Activity;
   fallbackClassName?: string;
 }) {
-  const [failed, setFailed] = useState(false);
+  const [failedSrc, setFailedSrc] = useState<ComponentProps<typeof Image>["src"] | null>(null);
+  const failed = failedSrc === src;
 
   if (failed || !src) {
     return <Fallback className={fallbackClassName ?? "h-5 w-5 shrink-0"} />;
   }
 
-  return (
-    <Image src={src} alt={alt} {...props} onError={() => setFailed(true)} />
-  );
+  return <Image src={src} alt={alt} {...props} onError={() => setFailedSrc(src)} />;
 }
 
 function TooltipBody({ data }: { data: LanyardData }) {
