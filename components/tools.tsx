@@ -114,7 +114,7 @@ export function Tools() {
                     →
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1 truncate">
+                <p className="mt-1 line-clamp-2 text-sm text-muted-foreground sm:line-clamp-none sm:truncate">
                   {tool.description}
                 </p>
               </div>
