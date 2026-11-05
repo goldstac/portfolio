@@ -1,6 +1,7 @@
 "use client";
 
 import { markdownComponents } from "@/components/markdown-components";
+import { Footer } from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/config/types";
@@ -50,13 +51,15 @@ const imageVariants: Variants = {
 
 export function ProjectContent({ project }: { project: Project }) {
   return (
-    <motion.main
+    <>
+      <motion.main
+      id="main-content"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="relative min-h-screen max-w-3xl mx-auto md:pb-16 border border-dashed overflow-hidden pt-6"
-    >
-      <motion.div variants={itemVariants} className="border-b px-6 pb-6 mb-6">
+      className="no-js-visible relative min-h-screen max-w-3xl mx-auto md:pb-16 border border-dashed overflow-hidden pt-16"
+      >
+      <motion.div variants={itemVariants} className="no-js-visible border-b px-6 pb-6 mb-6">
         <Button
           asChild
           variant="link"
@@ -81,7 +84,7 @@ export function ProjectContent({ project }: { project: Project }) {
         </h1>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="px-6 mb-8">
+      <motion.div variants={itemVariants} className="no-js-visible px-6 mb-8">
         <p className="text-lg text-muted-foreground leading-relaxed">
           {project.description}
         </p>
@@ -90,7 +93,7 @@ export function ProjectContent({ project }: { project: Project }) {
       {project.image ? (
         <motion.div
           variants={imageVariants}
-          className="aspect-video relative bg-muted overflow-hidden"
+          className="no-js-visible aspect-video relative bg-muted overflow-hidden"
         >
           <Image
             src={project.image}
@@ -107,7 +110,7 @@ export function ProjectContent({ project }: { project: Project }) {
       <div className="px-6 mt-4 space-y-8">
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap items-center justify-between gap-4 mt-8"
+          className="no-js-visible flex flex-wrap items-center justify-between gap-4 mt-8"
         >
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
@@ -149,7 +152,7 @@ export function ProjectContent({ project }: { project: Project }) {
         {project.metrics && project.metrics.length > 0 && (
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            className="no-js-visible grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {project.metrics.map((metric) => (
               <div key={metric.label} className="space-y-2">
@@ -169,7 +172,7 @@ export function ProjectContent({ project }: { project: Project }) {
         {project.content && (
           <motion.div
             variants={itemVariants}
-            className="prose prose-neutral dark:prose-invert max-w-none py-4"
+            className="no-js-visible prose prose-neutral dark:prose-invert max-w-none py-4"
           >
             {typeof project.content === "string" ? (
               <ReactMarkdown
@@ -184,6 +187,8 @@ export function ProjectContent({ project }: { project: Project }) {
           </motion.div>
         )}
       </div>
-    </motion.main>
+      </motion.main>
+      <Footer />
+    </>
   );
 }

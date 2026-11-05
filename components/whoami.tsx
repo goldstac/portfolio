@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { PhotoCard } from "@/components/photo-card";
-import { siteConfig } from "@/config/site";
 
 const entryTransition = {
   duration: 0.2,
@@ -28,7 +27,7 @@ export function WhoAmI() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={entryTransition}
-        className="space-y-4"
+        className="no-js-visible space-y-4"
       >
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <span className="text-lg font-bold">Li Productions</span>

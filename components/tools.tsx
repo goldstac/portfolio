@@ -69,6 +69,7 @@ export function Tools() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ ...entryTransition, delay: index * 0.05 }}
+            className="no-js-visible"
           >
             <a
               href={tool.href}

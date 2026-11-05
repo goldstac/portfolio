@@ -29,7 +29,13 @@ export async function generateMetadata({
     ? project.image.startsWith("http")
       ? project.image
       : `${siteConfig.meta.url}${project.image}`
-    : `${siteConfig.meta.url}/opengraph-image`;
+    : `${siteConfig.meta.url}${siteConfig.meta.ogImage.url}`;
+  const imageWidth = project.image
+    ? project.imageWidth ?? siteConfig.meta.ogImage.width
+    : siteConfig.meta.ogImage.width;
+  const imageHeight = project.image
+    ? project.imageHeight ?? siteConfig.meta.ogImage.height
+    : siteConfig.meta.ogImage.height;
 
   return {
     title: project.title,
@@ -52,8 +58,8 @@ export async function generateMetadata({
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: 630,
+          width: imageWidth,
+          height: imageHeight,
           alt: project.imageAlt,
         },
       ],

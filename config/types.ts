@@ -187,6 +187,8 @@ export interface Project {
   content?: string;
   image: string;
   imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
   liveUrl?: string;
   githubUrl?: string;
   href?: string;

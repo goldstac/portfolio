@@ -167,7 +167,7 @@ export function StackRolodex({
               ? { duration: 0 }
               : { duration: TRAVEL_SECONDS, ease: EASE }
           }
-          className="whitespace-nowrap text-2xl font-medium tracking-tight sm:text-4xl"
+          className="no-js-visible whitespace-nowrap text-2xl font-medium tracking-tight sm:text-4xl"
         >
           {label}
         </motion.p>

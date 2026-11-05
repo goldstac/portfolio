@@ -146,7 +146,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto flex max-w-2xl flex-col items-center text-center"
+          className="no-js-visible mx-auto flex max-w-2xl flex-col items-center text-center"
         >
           <span
             aria-hidden="true"

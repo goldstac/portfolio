@@ -29,14 +29,14 @@ export default function WhoAmIPage() {
       </div>
 
       <div className="px-6 flex-1 space-y-8">
-        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.05 }}>
+        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.05 }} className="no-js-visible">
           <WhoAmIName />
         </motion.div>
 
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.12 }}
-          className="relative border border-dashed border-border/40 rounded-lg p-5 overflow-hidden"
+          className="no-js-visible relative border border-dashed border-border/40 rounded-lg p-5 overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-muted/40 to-transparent rounded-bl-full" />
           <p className="text-sm leading-relaxed text-muted-foreground relative z-10">
@@ -53,7 +53,7 @@ export default function WhoAmIPage() {
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.15 }}
-          className="flex flex-wrap items-start gap-4 sm:gap-6"
+          className="no-js-visible flex flex-wrap items-start gap-4 sm:gap-6"
         >
           <PhotoCard
             src="/images/cato.jpg"
@@ -77,6 +77,7 @@ export default function WhoAmIPage() {
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.18 }}
+          className="no-js-visible"
         >
           <div className="border border-dashed border-border/40 rounded-lg p-4">
             <h3 className="text-[10px] font-mono text-muted-foreground/50 tracking-widest mb-3">
@@ -98,7 +99,7 @@ export default function WhoAmIPage() {
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.24 }}
-          className="border border-dashed border-border/40 rounded-lg p-5"
+          className="no-js-visible border border-dashed border-border/40 rounded-lg p-5"
         >
           <h3 className="text-[10px] font-mono text-muted-foreground/50 tracking-widest mb-2">
             NOW
@@ -112,7 +113,7 @@ export default function WhoAmIPage() {
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.30 }}
-          className="flex flex-wrap gap-4 text-xs font-mono text-muted-foreground pt-2 pb-4"
+          className="no-js-visible flex flex-wrap gap-4 text-xs font-mono text-muted-foreground pt-2 pb-4"
         >
           <a
             href={`https://github.com/${siteConfig.personal.githubUsername}`}

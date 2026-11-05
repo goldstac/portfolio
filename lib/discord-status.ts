@@ -70,11 +70,8 @@ export function getActivityImageUrl(activity: DiscordActivity): string | null {
 
   if (raw.startsWith("mp:external/")) {
     // format: mp:external/<hash>/https/domain/path
-    const urlPart = raw.replace("mp:external/", "");
-    const slashIdx = urlPart.indexOf("/");
-    if (slashIdx !== -1) {
-      return `https://wsrv.nl/?url=${urlPart.substring(slashIdx + 1)}&w=64&h=64`;
-    }
+    const externalPath = raw.slice("mp:external/".length);
+    return `https://media.discordapp.net/external/${externalPath}?width=64&height=64`;
   }
 
   if (activity.application_id) {

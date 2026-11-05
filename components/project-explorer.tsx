@@ -107,14 +107,8 @@ function WorkRow({
   onPreviewEnd,
   showHoverPreview,
 }: { project: ProjectExplorerItem; index: number } & PreviewHandlers) {
-  const [expanded, setExpanded] = useState(false);
   const href = project.href || project.liveUrl || project.githubUrl || (project.id ? `/project/${project.id}` : "#");
-  const isExternal = Boolean(
-    project.liveUrl || project.githubUrl ||
-      (project.href &&
-        (project.href.startsWith("http://") ||
-          project.href.startsWith("https://"))),
-  );
+  const isExternal = href.startsWith("http://") || href.startsWith("https://");
 
   return (
     <motion.li
@@ -122,7 +116,16 @@ function WorkRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.24, delay: index * 0.045 }}
-      className="relative border border-dashed border-border/40 rounded-md card-glow hover:border-border/60 transition-colors"
+      className="no-js-visible relative border border-dashed border-border/40 rounded-md card-glow hover:border-border/60 transition-colors"
+      onMouseEnter={(event) =>
+        showHoverPreview &&
+        onPreviewStart(project, event.currentTarget.getBoundingClientRect())
+      }
+      onFocus={(event) =>
+        showHoverPreview &&
+        onPreviewStart(project, event.currentTarget.getBoundingClientRect())
+      }
+      onMouseLeave={onPreviewEnd}
     >
       <div className="px-3 py-3 relative z-10">
         <div className="flex items-start justify-between gap-2">
@@ -321,7 +324,7 @@ export function ProjectExplorer({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.2 }}
-          className="no-js-visible section-heading mb-3"
+              className="no-js-visible section-heading mb-3"
         >
           {title}
         </motion.h2>
@@ -347,6 +350,7 @@ export function ProjectExplorer({
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
+              className="no-js-visible"
             >
               <button
                 type="button"

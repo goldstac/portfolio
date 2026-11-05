@@ -32,9 +32,9 @@ export const siteConfig: PortfolioConfig = {
     locale: "en_US",
     ogImage: {
       // ?v= busts Discord/X CDN caches — bump it whenever the banner changes
-      url: "/opengraph-image?v=2",
-      width: 1200,
-      height: 630,
+      url: "/images/banner.png?v=2",
+      width: 1672,
+      height: 941,
       alt: "Li Productions — building tools and systems",
     },
     twitterCreator: "@LiProductions_",
