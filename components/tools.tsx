@@ -39,12 +39,12 @@ const tools: Tool[] = [
     },
   },
   {
-    id: "zeron",
-    name: "Zeron",
-    description: "Control your coding agents from any device.",
-    href: "https://zeron.sh/",
-    icon: "/stacks/zeron.png",
-    iconAlt: "Zeron",
+    id: "dusk-bot",
+    name: "dusk bot",
+    description: "A team of AI bots I message like teammates, on my own machine.",
+    href: "https://dusk.bot/",
+    icon: "/stacks/duskbot.png",
+    iconAlt: "dusk bot",
   },
 ];
 
