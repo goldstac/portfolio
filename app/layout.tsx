@@ -1,132 +1,9 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { SiteHeader } from "@/components/site-header";
-import { Spotlight } from "@/components/spotlight";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { siteConfig } from "@/config/site";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
-import { GeistPixelGrid } from "geist/font/pixel";
-import { Metadata, Viewport } from "next";
-import { DM_Sans, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#141414" },
-  ],
-};
-
-const DmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.meta.url),
-  title: {
-    default: siteConfig.meta.title,
-    template: siteConfig.meta.titleTemplate,
-  },
-  description: siteConfig.meta.description,
-  keywords: siteConfig.meta.keywords,
-  authors: siteConfig.meta.authors,
-  creator: siteConfig.meta.creator,
-  publisher: siteConfig.meta.publisher,
-  classification: siteConfig.meta.classification,
-  category: siteConfig.meta.category,
-  alternates: {
-    canonical: siteConfig.meta.url,
-  },
-  openGraph: {
-    type: "website",
-    locale: siteConfig.meta.locale,
-    url: siteConfig.meta.url,
-    title: siteConfig.meta.title,
-    description: siteConfig.meta.description,
-    siteName: siteConfig.meta.shortTitle,
-    images: [siteConfig.meta.ogImage],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.meta.title,
-    description: siteConfig.meta.description,
-    images: [siteConfig.meta.ogImage.url],
-    creator: siteConfig.meta.twitterCreator,
-  },
-  icons: {
-    icon: siteConfig.meta.icon || undefined,
-    shortcut: siteConfig.meta.icon || undefined,
-    apple: siteConfig.meta.appleIcon || undefined,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: siteConfig.meta.googleVerification,
-  },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteConfig.meta.url}/#website`,
-      url: siteConfig.meta.url,
-      name: siteConfig.meta.title,
-      description: siteConfig.meta.description,
-      publisher: {
-        "@id": `${siteConfig.meta.url}/#person`,
-      },
-    },
-    {
-      "@type": "Person",
-      "@id": `${siteConfig.meta.url}/#person`,
-      name: siteConfig.personal.fullName,
-      alternateName: "Li Productions",
-      url: siteConfig.meta.url,
-      jobTitle: "Builder — CLI tools, GUI apps, cybersecurity, full-stack systems",
-      description: siteConfig.meta.description,
-      knowsAbout: [
-        "C",
-        "C++",
-        "Python",
-        "Rust",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "Cybersecurity",
-        "CLI Tools",
-        "Arch Linux",
-      ],
-      sameAs: [
-        "https://github.com/goldstac",
-        "https://x.com/LiProductions_",
-      ],
-      image: `${siteConfig.meta.url}/profile.avif`,
-    },
-  ],
+  title: "Portfolio",
+  description: "Minimal Next.js portfolio rewrite.",
 };
 
 export default function RootLayout({
@@ -135,42 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn(
-        GeistPixelGrid.variable,
-        "bg-background font-sans",
-        DmSans.variable,
-      )}
-      suppressHydrationWarning
-    >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body
-        className={`${geistMono.variable} antialiased`}
-      >
-        <noscript>
-          <style>{`.no-js-visible { opacity: 1 !important; transform: none !important; filter: none !important; stroke-dashoffset: 0 !important; stroke-dasharray: none !important; }`}</style>
-        </noscript>
-        <ThemeProvider>
-          <Spotlight />
-          <TooltipProvider>
-            <SiteHeader />
-            {children}
-          </TooltipProvider>
-        </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
-        <Script
-          src="https://talvess.vercel.app/script.js"
-          data-website-id="d002ed18-6c36-4080-90ca-eca07c6f04e6"
-          strategy="afterInteractive"
-        />
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
