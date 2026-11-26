@@ -29,10 +29,12 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Separator } from "@/components/ui/separator";
+import { GitHubCalendar } from "@/components/ui/github-map";
 import {
   InteractiveSkillCloud,
   type SkillCloudItem,
 } from "@/components/ui/interactive-skill-cloud";
+import { contributionTotal, githubContributions } from "@/lib/github-contributions";
 import { cn } from "@/lib/utils";
 
 const stack: SkillCloudItem[] = [
@@ -65,6 +67,14 @@ const capabilities = [
 ];
 
 const bars = [38, 52, 44, 68, 56, 84, 72, 92];
+
+const heatmapColors = [
+  "oklch(0.24 0.01 265)",
+  "oklch(0.38 0.07 278)",
+  "oklch(0.52 0.11 278)",
+  "oklch(0.66 0.14 278)",
+  "oklch(0.78 0.13 278)",
+];
 
 export default function Home() {
   return (
@@ -262,6 +272,43 @@ export default function Home() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <Separator />
+
+      <section id="activity" className="mx-auto max-w-6xl px-6 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              GitHub activity
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              A year of showing up.
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+            {contributionTotal.toLocaleString()} contributions in the last year on{" "}
+            <a
+              href="https://github.com/goldstac"
+              target="_blank"
+              rel="noreferrer"
+              className="text-foreground underline underline-offset-4"
+            >
+              @goldstac
+            </a>
+            .
+          </p>
+        </div>
+
+        <Card className="mt-10 overflow-hidden border-border/70 bg-card/50 p-5 sm:p-6">
+          <GitHubCalendar
+            data={githubContributions}
+            colors={heatmapColors}
+            minWeeks={53}
+            showCounts={false}
+            stickers={[]}
+          />
+        </Card>
       </section>
 
       <Separator />
