@@ -34,7 +34,11 @@ import {
   InteractiveSkillCloud,
   type SkillCloudItem,
 } from "@/components/ui/interactive-skill-cloud";
-import { contributionTotal, githubContributions } from "@/lib/github-contributions";
+import {
+  contributionTotal,
+  githubContributions,
+  newRepositoryCount,
+} from "@/lib/github-contributions";
 import { cn } from "@/lib/utils";
 
 const stack: SkillCloudItem[] = [
@@ -287,7 +291,8 @@ export default function Home() {
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            {contributionTotal.toLocaleString()} contributions in the last year on{" "}
+            {contributionTotal.toLocaleString()} contributions and {newRepositoryCount} new
+            repositories in the last year on{" "}
             <a
               href="https://github.com/goldstac"
               target="_blank"
@@ -306,7 +311,6 @@ export default function Home() {
             colors={heatmapColors}
             minWeeks={53}
             showCounts={false}
-            stickers={[]}
           />
         </Card>
       </section>
