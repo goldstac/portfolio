@@ -52,24 +52,6 @@ const stack: SkillCloudItem[] = [
   { id: "design", name: "Design", icon: <PenTool className="size-3.5" />, accent: "#c084fc" },
 ];
 
-const capabilities = [
-  {
-    title: "Frontend",
-    body: "Accessible, responsive interfaces built with React, TypeScript and a real component system.",
-    tag: "Next.js · React · Tailwind",
-  },
-  {
-    title: "Backend",
-    body: "APIs, data models and auth that stay simple to reason about as a product grows.",
-    tag: "Node · Postgres · Prisma",
-  },
-  {
-    title: "Craft",
-    body: "Motion, typography and interaction detail — used sparingly, where they actually help.",
-    tag: "Motion · shadcn/ui · Figma",
-  },
-];
-
 const bars = [38, 52, 44, 68, 56, 84, 72, 92];
 
 const heatmapColors = [
@@ -100,9 +82,6 @@ export default function Home() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink href="#work">Work</NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink href="#about">About</NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink href="#stack">Stack</NavigationMenuLink>
@@ -177,7 +156,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <Card className="overflow-hidden border-border/70 bg-card/80 shadow-xl shadow-black/20">
+            <Card id="work" className="overflow-hidden border-border/70 bg-card/80 shadow-xl shadow-black/20">
               <div className="relative h-44 border-b border-border/70 bg-muted/25">
                 <div className="absolute inset-x-6 top-6 rounded-lg border border-border/70 bg-background/95 p-4 shadow-lg">
                   <div className="flex items-center gap-1.5">
@@ -243,40 +222,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-
-      <Separator />
-
-      <section id="about" className="mx-auto max-w-6xl px-6 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-              What I do
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              A small, focused set of skills.
-            </h2>
-          </div>
-          <p id="work" className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            I&apos;d rather go deep on a few things than claim to do everything.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {capabilities.map((item) => (
-            <Card key={item.title} className="border-border/70 bg-card/50">
-              <CardHeader>
-                <CardTitle className="text-base">{item.title}</CardTitle>
-                <CardDescription className="leading-relaxed">{item.body}</CardDescription>
-              </CardHeader>
-              <CardFooter>
-                <Badge variant="outline" className="font-mono text-[10px] font-normal">
-                  {item.tag}
-                </Badge>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </section>
 
       <Separator />
 
